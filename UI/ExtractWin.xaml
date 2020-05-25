@@ -55,10 +55,10 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <RadioButton GroupName="feature" Content="Sinus" Width="70" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"/>
-                            <RadioButton GroupName="feature" Content="Airway" Width="70" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"/>
-                            <RadioButton GroupName="feature" Content="Root" Width="70" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"/>
-                            <RadioButton GroupName="feature" Content="Bone" Width="70" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <RadioButton GroupName="feature" Name="m_sinus" Content="Sinus" Width="70" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"/>
+                            <RadioButton GroupName="feature" Name="m_airway" Content="Airway" Width="70" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <RadioButton GroupName="feature" Name="m_root" Content="Root" Width="70" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"/>
+                            <RadioButton GroupName="feature" Name="m_bone" Content="Bone" Width="70" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"/>
                         </Grid>
                     </GroupBox>
                 </StackPanel>

@@ -64,12 +64,12 @@ HWND FileProcessWin::GetHWND()
 
 int FileProcessWin::GetWidth()
 {
-	return gwcObject->GetWidth();
+	return (int)gwcObject->Width;
 }
 
 int FileProcessWin::GetHeight()
 {
-	return gwcObject->GetHeight();
+	return (int)gwcObject->Height;
 }
 
 void FileProcessWin::SetPosition(int MFCFrameTop, int MFCFrameLeft)

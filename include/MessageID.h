@@ -10,6 +10,14 @@
 #define WM_WPFUI_MANUALALIGN              WM_USER +106
 #define WM_WPFUI_EXTRACT             WM_USER +107
 
+enum Extracttype
+{
+	extract_non,
+	extract_sinus,
+	extract_airway,
+	extract_root,
+	extract_bone
+};
 // 2008/07/24 kenny, 執行Message queue裡面的東西,讓單執行緒的UI看起來不至於沒有回應
 // 暫時的做法而已,多執行緒才是正確的做法
 inline void DoEvents()

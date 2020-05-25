@@ -4658,21 +4658,64 @@ LRESULT CVTKMFCTESTView::WPFCALL_MANUALALIGNWIN(WPARAM wParam, LPARAM lParam)
 
 LRESULT CVTKMFCTESTView::WPFCALL_EXTRACT(WPARAM wParam, LPARAM lParam)
 {
-	if (wParam == 0)
+	if (wParam == 0)//add extract
 	{
-		if (lParam == 0)
+		if (lParam == extract_sinus)
 		{
-			AfxMessageBox(_T("extract add"));
+			//AfxMessageBox(_T("sinus"));
 		}
-		else if (lParam == 1)
+		else if (lParam == extract_airway)
 		{
-			AfxMessageBox(_T("extract confirm"));
+			//AfxMessageBox(_T("airway"));
 		}
-		else if (lParam == 2)
+		else if (lParam == extract_root)
 		{
-			AfxMessageBox(_T("extract reset"));
+			//AfxMessageBox(_T("root"));
+		}
+		else if (lParam == extract_bone)
+		{
+			//AfxMessageBox(_T("bone"));
 		}
 	}
+	else if (wParam == 1)//confirm extract
+	{
+		if (lParam == extract_sinus)
+		{
+			//AfxMessageBox(_T("sinus"));
+		}
+		else if (lParam == extract_airway)
+		{
+			//AfxMessageBox(_T("airway"));
+		}
+		else if (lParam == extract_root)
+		{
+			//AfxMessageBox(_T("root"));
+		}
+		else if (lParam == extract_bone)
+		{
+			//AfxMessageBox(_T("bone"));
+		}
+	}
+	else if (wParam == 2)//reset extract
+	{
+		if (lParam == extract_sinus)
+		{
+			//AfxMessageBox(_T("sinus"));
+		}
+		else if (lParam == extract_airway)
+		{
+			//AfxMessageBox(_T("airway"));
+		}
+		else if (lParam == extract_root)
+		{
+			//AfxMessageBox(_T("root"));
+		}
+		else if (lParam == extract_bone)
+		{
+			//AfxMessageBox(_T("bone"));
+		}
+	}
+
 	return 1;
 }
 
@@ -4688,28 +4731,11 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 			CRect nowSizeClient;
 			GetClientRect(nowSizeClient);
 
-			int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2;
-			int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2;
+			int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2 - pFrame->m_fileimportct->GetWidth() / 2;
+			int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2 - pFrame->m_fileimportct->GetHeight() / 2;
 
-			//int min_x = 100;
-			//int min_y = 679;
 			pFrame->m_fileimportct->SetPosition(mid_y, mid_x);
 			pFrame->m_fileimportct->Show();
-
-			//if (CGetDirPath(c_dirpath))
-			//{
-			//	CFileOpenDir(c_dirpath);
-			//	//ReOriVolumeRendering();		
-			//	SetResliceSagittalRender();
-			//	SetResliceCoronalRender();
-			//	SetResliceAxialRender();
-			//	ShowVolumeRendering();
-			//	ShowSagittalImage();
-			//	ShowCoronalImage();
-			//	ShowAxialImage();
-			//	SetVolumeRenderingRender();
-			//	SetInteractor();
-			//}
 		}
 		else if (lParam == 2)
 		{
@@ -4862,6 +4888,10 @@ LRESULT CVTKMFCTESTView::WPFCALL(WPARAM wParam, LPARAM lParam)
 	}
 	else if (wParam == 4)//存檔
 	{
+		int kk = pFrame->m_fileprocesswin->GetHeight();
+		CString yy;
+		yy.Format(_T("%d"), kk);
+		AfxMessageBox(yy);
 		//AfxMessageBox(_T("存檔"));
 		//CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 		//pFrame->m_fileprocesswin->Hide();

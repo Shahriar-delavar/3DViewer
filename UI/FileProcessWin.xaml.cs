@@ -34,14 +34,14 @@ namespace UI
             InitializeComponent();
         }
 
-        public double GetWidth()
-        {
-            return ((Grid)this.Content).RenderSize.Width;
-        }
-        public double GetHeight()
-        {
-            return ((Grid)this.Content).RenderSize.Height;
-        }
+        //public double GetWidth()
+        //{
+        //    return ((Grid)this.Content).RenderSize.Width;
+        //}
+        //public double GetHeight()
+        //{
+        //    return ((Grid)this.Content).RenderSize.Height;
+        //}
         public void SetFramePosition(int MFCFrameTop, int MFCFrameLeft)
         {
             this.Top = MFCFrameTop - 20;

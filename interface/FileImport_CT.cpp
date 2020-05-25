@@ -43,12 +43,14 @@ HWND FileImport_CT::GetHWND()
 
 int FileImport_CT::GetWidth()
 {
-	return gwcObject->GetWidth();
+	return (int)gwcObject->Width;
+	//return gwcObject->GetWidth();
 }
 
 int FileImport_CT::GetHeight()
 {
-	return gwcObject->GetHeight();
+	return (int)gwcObject->Height;
+	//return gwcObject->GetHeight();
 }
 
 void FileImport_CT::SetPosition(int MFCFrameTop, int MFCFrameLeft)

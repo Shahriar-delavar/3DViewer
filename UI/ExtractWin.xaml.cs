@@ -57,18 +57,27 @@ namespace UI
 
         private void Button_Event_Click(object sender, RoutedEventArgs e)
         {
+            int radio_selected = -1;
+
+            if (m_sinus.IsChecked == true)              radio_selected = 1;
+            else if (m_airway.IsChecked == true)        radio_selected = 2;
+            else if (m_root.IsChecked == true)          radio_selected = 3;
+            else if (m_bone.IsChecked == true)          radio_selected = 4;
+
+            if (radio_selected == -1) return;
+
             var btn = sender as Button;
 
             switch (btn.Name)
             {
                 case "button_extract_add":
-                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_EXTRACT, (IntPtr)0, (IntPtr)0);
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_EXTRACT, (IntPtr)0, (IntPtr)radio_selected);
                     break;
                 case "button_extract_confirm":
-                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_EXTRACT, (IntPtr)0, (IntPtr)1);
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_EXTRACT, (IntPtr)1, (IntPtr)radio_selected);
                     break;
                 case "button_extract_reset":
-                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_EXTRACT, (IntPtr)0, (IntPtr)2);
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_EXTRACT, (IntPtr)2, (IntPtr)radio_selected);
                     break;
             }
         }

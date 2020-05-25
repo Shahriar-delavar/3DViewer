@@ -44,7 +44,7 @@
                 <StackPanel Grid.Row="0">
                     <GroupBox Header="Fixed" BorderBrush="Black" Margin="0,5,0,0">
                         <Grid>
-                            <ComboBox Text="Is not open" Height="30" Margin="7" SelectionChanged="ComboBox_SelectionChanged">
+                            <ComboBox Text="Is not open" Height="30" Margin="7" SelectionChanged="ComboBox_SelectionChanged" VerticalContentAlignment="Center">
                                 <ComboBoxItem Name="feature1">CT</ComboBoxItem>
                                 <ComboBoxItem Name="feature2">Upper Jaw</ComboBoxItem>
                                 <ComboBoxItem Name="feature3">Lower Jaw</ComboBoxItem>
@@ -55,7 +55,7 @@
                 <StackPanel Grid.Row="1">
                     <GroupBox Header="Floating" BorderBrush="Black" Margin="0,5,0,0">
                         <Grid>
-                            <ComboBox Text="Is not open" Height="30"  Margin="7" SelectionChanged="ComboBox_SelectionChanged_1" >
+                            <ComboBox Text="Is not open" Height="30"  Margin="7" SelectionChanged="ComboBox_SelectionChanged_1" VerticalContentAlignment="Center">
                                 <ComboBoxItem Name="float1">CT</ComboBoxItem>
                                 <ComboBoxItem Name="float2">Upper Jaw</ComboBoxItem>
                                 <ComboBoxItem Name="float3">Lower Jaw</ComboBoxItem>
