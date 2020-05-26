@@ -48,6 +48,15 @@
     <ClCompile Include="ExtractWin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InfoSetting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileImport_Upperjaw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileImport_Lowerjaw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="interface.def">
@@ -98,6 +107,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ExtractWin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoSetting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileImport_Upperjaw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileImport_Lowerjaw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,7 +10,10 @@
 #include "AlignWin.h"
 #include "ManualWin.h"
 #include "FileImport_CT.h"
+#include "FileImport_Upperjaw.h"
+#include "FileImport_Lowerjaw.h"
 #include "ExtractWin.h"
+#include "InfoSetting.h"
 
 class CMainFrame : public CFrameWnd
 {
@@ -30,7 +33,11 @@ public:
 	AlignWin *m_alignwin = NULL;
 	ManualWin *m_manualwin = NULL;
 	FileImport_CT *m_fileimportct = NULL;
+	FileImport_Upperjaw *m_fileimportupperjaw = NULL;
+	FileImport_Lowerjaw *m_fileimportlowerjaw = NULL;
 	ExtractWin *m_extract = NULL;
+	InfoSetting *m_infosetting = NULL;
+
 
 	void CreateWpfDialog();
 

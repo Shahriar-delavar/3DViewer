@@ -209,7 +209,10 @@
     <ClCompile Include="ExtractWin.cpp" />
     <ClCompile Include="EzOrthoReader.cpp" />
     <ClCompile Include="FileImport_CT.cpp" />
+    <ClCompile Include="FileImport_Lowerjaw.cpp" />
+    <ClCompile Include="FileImport_Upperjaw.cpp" />
     <ClCompile Include="FileProcessWin.cpp" />
+    <ClCompile Include="InfoSetting.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="ManualWin.cpp" />
     <ClCompile Include="pch.cpp">
@@ -231,8 +234,11 @@
     <ClInclude Include="ExtractWin.h" />
     <ClInclude Include="EzOrthoReader.h" />
     <ClInclude Include="FileImport_CT.h" />
+    <ClInclude Include="FileImport_Lowerjaw.h" />
+    <ClInclude Include="FileImport_Upperjaw.h" />
     <ClInclude Include="FileProcessWin.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="InfoSetting.h" />
     <ClInclude Include="interface.h" />
     <ClInclude Include="ManualWin.h" />
     <ClInclude Include="pch.h" />

@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "FileImport_CT.h"
+#include "FileImport_Upperjaw.h"
 #include "MessageID.h"
 #include <msclr/marshal_atl.h>
 
@@ -10,55 +10,54 @@ using namespace System::Windows::Media;
 using namespace System::Runtime;
 using namespace System::Windows::Interop;
 
-gcroot<HwndSource^> gHwndSource_FILEIMPORTCT;
-gcroot<UI::FileImport_CT^> gwcObject = nullptr;
+gcroot<HwndSource^> gHwndSource_FILEIMPORTUPPERJAW;
+gcroot<UI::FileImport_Upperjaw^> gwcObject = nullptr;
 
-FileImport_CT::FileImport_CT(HWND hView, HWND hWnd)
+FileImport_Upperjaw::FileImport_Upperjaw(HWND hView, HWND hWnd)
 {
-	gwcObject = gcnew UI::FileImport_CT();
+	gwcObject = gcnew UI::FileImport_Upperjaw();
 	gwcObject->SetParentHwnd((IntPtr)hView);
 }
 
-FileImport_CT::~FileImport_CT()
+FileImport_Upperjaw::~FileImport_Upperjaw()
 {
 	Is_Show = FALSE;
 }
 
-void FileImport_CT::Show()
+void FileImport_Upperjaw::Show()
 {
 	gwcObject->ShowDialog();
 	Is_Show = TRUE;
 }
 
-void FileImport_CT::Hide()
+void FileImport_Upperjaw::Hide()
 {
 	gwcObject->Hide();
 	Is_Show = FALSE;
 }
 
-HWND FileImport_CT::GetHWND()
+HWND FileImport_Upperjaw::GetHWND()
 {
 	return hwndWPF;
 }
 
-int FileImport_CT::GetWidth()
+int FileImport_Upperjaw::GetWidth()
 {
 	return (int)gwcObject->Width;
-	//return gwcObject->GetWidth();
 }
 
-int FileImport_CT::GetHeight()
+int FileImport_Upperjaw::GetHeight()
 {
 	return (int)gwcObject->Height;
-	//return gwcObject->GetHeight();
 }
 
-void FileImport_CT::SetPosition(int MFCFrameTop, int MFCFrameLeft)
+void FileImport_Upperjaw::SetPosition(int MFCFrameTop, int MFCFrameLeft)
 {
 	gwcObject->SetFramePosition(MFCFrameTop, MFCFrameLeft);
 }
 
-void MarshalString(String ^ s, string& os) {
+
+void MarshalString1(String ^ s, string& os) {
 	using namespace Runtime::InteropServices;
 	const char* chars =
 		(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
@@ -66,7 +65,7 @@ void MarshalString(String ^ s, string& os) {
 	Marshal::FreeHGlobal(IntPtr((void*)chars));
 }
 
-void MarshalString(String ^ s, wstring& os) {
+void MarshalString1(String ^ s, wstring& os) {
 	using namespace Runtime::InteropServices;
 	const wchar_t* chars =
 		(const wchar_t*)(Marshal::StringToHGlobalUni(s)).ToPointer();
@@ -74,12 +73,9 @@ void MarshalString(String ^ s, wstring& os) {
 	Marshal::FreeHGlobal(IntPtr((void*)chars));
 }
 
-string FileImport_CT::GetCTFolderPath()
+string FileImport_Upperjaw::GetCTFolderPath()
 {
-	//string report;
-	//report = "";
-	//return report;
 	string folderpath = "";
-	MarshalString(gwcObject->GetCTFolderPath(), folderpath);
+	MarshalString1(gwcObject->GetCTFolderPath(), folderpath);
 	return folderpath;
 }

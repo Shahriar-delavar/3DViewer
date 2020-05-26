@@ -283,6 +283,7 @@ public:
 	afx_msg LRESULT WPFCALL_ALIGNWIN(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT WPFCALL_MANUALALIGNWIN(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT WPFCALL_EXTRACT(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT WPFCALL_INFOSETTING(WPARAM wParam, LPARAM lParam);
 public:
 	double threshold;
 	double threshold_old;

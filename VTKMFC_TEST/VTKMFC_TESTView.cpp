@@ -649,6 +649,7 @@ BEGIN_MESSAGE_MAP(CVTKMFCTESTView, CView)
 	ON_MESSAGE(WM_WPFUI_ALIGN, WPFCALL_ALIGNWIN)
 	ON_MESSAGE(WM_WPFUI_MANUALALIGN, WPFCALL_MANUALALIGNWIN)
 	ON_MESSAGE(WM_WPFUI_EXTRACT, WPFCALL_EXTRACT)
+	ON_MESSAGE(WM_WPFUI_INFOSETTING, WPFCALL_INFOSETTING)
 
 	ON_WM_KEYDOWN()
 	ON_WM_CHAR()
@@ -4656,63 +4657,79 @@ LRESULT CVTKMFCTESTView::WPFCALL_MANUALALIGNWIN(WPARAM wParam, LPARAM lParam)
 	return 1;
 }
 
+LRESULT CVTKMFCTESTView::WPFCALL_INFOSETTING(WPARAM wParam, LPARAM lParam)
+{
+	if (wParam == 0)
+	{
+		if (lParam == show_info)
+		{
+			//AfxMessageBox(_T("show info"));
+		}
+		else if (lParam == show_setting)
+		{
+			//AfxMessageBox(_T("show setting"));
+		}
+	}
+	return 1;
+}
+
 LRESULT CVTKMFCTESTView::WPFCALL_EXTRACT(WPARAM wParam, LPARAM lParam)
 {
 	if (wParam == 0)//add extract
 	{
 		if (lParam == extract_sinus)
 		{
-			//AfxMessageBox(_T("sinus"));
+
 		}
 		else if (lParam == extract_airway)
 		{
-			//AfxMessageBox(_T("airway"));
+
 		}
 		else if (lParam == extract_root)
 		{
-			//AfxMessageBox(_T("root"));
+
 		}
 		else if (lParam == extract_bone)
 		{
-			//AfxMessageBox(_T("bone"));
+
 		}
 	}
 	else if (wParam == 1)//confirm extract
 	{
 		if (lParam == extract_sinus)
 		{
-			//AfxMessageBox(_T("sinus"));
+
 		}
 		else if (lParam == extract_airway)
 		{
-			//AfxMessageBox(_T("airway"));
+
 		}
 		else if (lParam == extract_root)
 		{
-			//AfxMessageBox(_T("root"));
+
 		}
 		else if (lParam == extract_bone)
 		{
-			//AfxMessageBox(_T("bone"));
+
 		}
 	}
 	else if (wParam == 2)//reset extract
 	{
 		if (lParam == extract_sinus)
 		{
-			//AfxMessageBox(_T("sinus"));
+
 		}
 		else if (lParam == extract_airway)
 		{
-			//AfxMessageBox(_T("airway"));
+
 		}
 		else if (lParam == extract_root)
 		{
-			//AfxMessageBox(_T("root"));
+
 		}
 		else if (lParam == extract_bone)
 		{
-			//AfxMessageBox(_T("bone"));
+
 		}
 	}
 
@@ -4750,7 +4767,14 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 	{
 		if (lParam == 1)
 		{
-			AfxMessageBox(_T("upper jaw load"));
+			CRect nowSizeClient;
+			GetClientRect(nowSizeClient);
+
+			int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2 - pFrame->m_fileimportupperjaw->GetWidth() / 2;
+			int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2 - pFrame->m_fileimportupperjaw->GetHeight() / 2;
+
+			pFrame->m_fileimportupperjaw->SetPosition(mid_y, mid_x);
+			pFrame->m_fileimportupperjaw->Show();
 		}
 		else if (lParam == 2)
 		{
@@ -4768,7 +4792,14 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 	{
 		if (lParam == 1)
 		{
-			AfxMessageBox(_T("lower jaw load"));
+			CRect nowSizeClient;
+			GetClientRect(nowSizeClient);
+
+			int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2 - pFrame->m_fileimportlowerjaw->GetWidth() / 2;
+			int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2 - pFrame->m_fileimportlowerjaw->GetHeight() / 2;
+
+			pFrame->m_fileimportlowerjaw->SetPosition(mid_y, mid_x);
+			pFrame->m_fileimportlowerjaw->Show();
 		}
 		else if (lParam == 2)
 		{
@@ -4822,6 +4853,42 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 			pFrame->m_fileimportct->Hide();
 		}
 	}
+	else if (wParam == 20)//Upperjaw load dialog
+	{
+		if (lParam == 0)
+		{
+
+		}
+		else if (lParam == 1)
+		{
+			CString path_name;
+			path_name = pFrame->m_fileimportupperjaw->GetCTFolderPath().c_str();
+			AfxMessageBox(path_name);
+			pFrame->m_fileimportupperjaw->Hide();
+		}
+		else if (lParam == 2)
+		{
+			pFrame->m_fileimportupperjaw->Hide();
+		}
+	}
+	else if (wParam == 30)//lowerjaw load dialog
+	{
+	if (lParam == 0)
+	{
+
+	}
+	else if (lParam == 1)
+	{
+		CString path_name;
+		path_name = pFrame->m_fileimportlowerjaw->GetCTFolderPath().c_str();
+		AfxMessageBox(path_name);
+		pFrame->m_fileimportlowerjaw->Hide();
+	}
+	else if (lParam == 2)
+	{
+		pFrame->m_fileimportlowerjaw->Hide();
+	}
+	}
 
 	return 1;
 }
@@ -4858,35 +4925,35 @@ LRESULT CVTKMFCTESTView::WPFCALL(WPARAM wParam, LPARAM lParam)
 	CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 	WPFDLG_ALL_HIDE(0);
 
-	if (wParam == 0)//開檔
+	if (wParam == Read_file)//開檔
 	{
 		int min_x = 0;
 		int min_y = 679;
 		pFrame->m_fileprocesswin->SetPosition(min_y, min_x);
 		pFrame->m_fileprocesswin->Show();
 	}
-	else if (wParam == 1)//定位
+	else if (wParam == Model_align)//定位
 	{
 		int min_x = 0;
 		int min_y = 679;
 		pFrame->m_alignwin->SetPosition(min_y, min_x);
 		pFrame->m_alignwin->Show();
 	}
-	else if (wParam == 2)//手調
+	else if (wParam == Model_manual)//手調
 	{
 		int min_x = 0;
 		int min_y = 679;
 		pFrame->m_manualwin->SetPosition(min_y, min_x);
 		pFrame->m_manualwin->Show();
 	}
-	else if (wParam == 3)//萃取
+	else if (wParam == Extract_feature)//萃取
 	{
 		int min_x = 0;
 		int min_y = 679;
 		pFrame->m_extract->SetPosition(min_y, min_x);
 		pFrame->m_extract->Show();
 	}
-	else if (wParam == 4)//存檔
+	else if (wParam == Save_file)//存檔
 	{
 		int kk = pFrame->m_fileprocesswin->GetHeight();
 		CString yy;

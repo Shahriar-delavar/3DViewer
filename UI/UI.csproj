@@ -89,8 +89,17 @@
     <Compile Include="FileImport_CT.xaml.cs">
       <DependentUpon>FileImport_CT.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileImport_Lowerjaw.xaml.cs">
+      <DependentUpon>FileImport_Lowerjaw.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileImport_Upperjaw.xaml.cs">
+      <DependentUpon>FileImport_Upperjaw.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FileProcessWin.xaml.cs">
       <DependentUpon>FileProcessWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoSetting.xaml.cs">
+      <DependentUpon>InfoSetting.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManualWin.xaml.cs">
       <DependentUpon>ManualWin.xaml</DependentUpon>
@@ -128,6 +137,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FileImport_Lowerjaw.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FileImport_Upperjaw.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FileProcessWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +156,10 @@
     <Page Include="ImgSource\SvgSource.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InfoSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ManualWin.xaml">
       <SubType>Designer</SubType>

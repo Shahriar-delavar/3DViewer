@@ -394,6 +394,17 @@ void CMainFrame::CreateWpfDialog()
 		::ShowWindow(m_btnfunbar->GetHWND(), SW_SHOW);
 	}
 
+	if (m_infosetting == NULL)
+	{
+		m_infosetting = new InfoSetting(GetActiveView()->GetSafeHwnd(), m_hWnd);
+		CRect nowSizeClient;
+		GetClientRect(nowSizeClient);
+
+		int mid_x = 10;
+		::SetWindowPos(m_infosetting->GetHWND(), NULL, mid_x, 50, m_infosetting->GetWidth(), m_infosetting->GetHeight(), NULL);
+		::ShowWindow(m_infosetting->GetHWND(), SW_SHOW);
+	}
+
 	if (m_fileprocesswin == NULL)
 	{
 		//CRect nowSizeClient;
@@ -434,5 +445,15 @@ void CMainFrame::CreateWpfDialog()
 	if (m_fileimportct == NULL)
 	{
 		m_fileimportct = new FileImport_CT(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
+	}
+
+	if (m_fileimportupperjaw == NULL)
+	{
+		m_fileimportupperjaw = new FileImport_Upperjaw(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
+	}
+
+	if (m_fileimportlowerjaw == NULL)
+	{
+		m_fileimportlowerjaw = new FileImport_Lowerjaw(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
 	}
 }

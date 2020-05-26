@@ -273,6 +273,18 @@
             <Viewbox>
                 <Image Source="{DynamicResource icon_confirmDrawingImage}"/>
             </Viewbox>
+            <Viewbox>
+                <Image Source="{DynamicResource icon_inforDrawingImage_normal}"/>
+            </Viewbox>
+            <Viewbox>
+                <Image Source="{DynamicResource icon_inforDrawingImage_active}"/>
+            </Viewbox>
+            <Viewbox>
+                <Image Source="{DynamicResource icon_setupDrawingImage_normal}"/>
+            </Viewbox>
+            <Viewbox>
+                <Image Source="{DynamicResource icon_setupDrawingImage_active}"/>
+            </Viewbox>
         </StackPanel>
     </Grid>
 </Window>
