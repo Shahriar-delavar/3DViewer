@@ -1,4 +1,7 @@
 #pragma once
+#include <string>
+using namespace std;
+
 class AFX_CLASS_EXPORT AlignWin
 {
 public:

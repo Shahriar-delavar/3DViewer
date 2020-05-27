@@ -4613,11 +4613,65 @@ LRESULT CVTKMFCTESTView::WPFCALL_ALIGNWIN(WPARAM wParam, LPARAM lParam)
 {
 	if (wParam == 0)
 	{
-		AfxMessageBox(_T("COMBO1"));
+		if (lParam == CT)
+		{
+			AfxMessageBox(_T("CT"));
+		}
+		else if (lParam == UPPERJAW)
+		{
+			AfxMessageBox(_T("UPPERJAW"));
+		}
+		else if (lParam == LOWERJAW)
+		{
+			AfxMessageBox(_T("LOWERJAW"));
+		}
+		else if (lParam == UPPERJAW_CROWN)
+		{
+			AfxMessageBox(_T("UPPERJAW_CROWN"));
+		}
+		else if (lParam == LOWERJAW_CROWN)
+		{
+			AfxMessageBox(_T("LOWERJAW_CROWN"));
+		}
+		else if (lParam == FACE_2D)
+		{
+			AfxMessageBox(_T("FACE_2D"));
+		}
+		else if (lParam == FACE_3D)
+		{
+			AfxMessageBox(_T("FACE_3D"));
+		}
 	}
 	else if (wParam == 1)
 	{
-		AfxMessageBox(_T("COMBO2"));
+		if (lParam == CT)
+		{
+			AfxMessageBox(_T("CT"));
+		}
+		else if (lParam == UPPERJAW)
+		{
+			AfxMessageBox(_T("UPPERJAW"));
+		}
+		else if (lParam == LOWERJAW)
+		{
+			AfxMessageBox(_T("LOWERJAW"));
+		}
+		else if (lParam == UPPERJAW_CROWN)
+		{
+			AfxMessageBox(_T("UPPERJAW_CROWN"));
+		}
+		else if (lParam == LOWERJAW_CROWN)
+		{
+			AfxMessageBox(_T("LOWERJAW_CROWN"));
+		}
+		else if (lParam == FACE_2D)
+		{
+			AfxMessageBox(_T("FACE_2D"));
+		}
+		else if (lParam == FACE_3D)
+		{
+			AfxMessageBox(_T("FACE_3D"));
+		}
 	}
 	else if (wParam == 2)
 	{
@@ -4640,6 +4694,37 @@ LRESULT CVTKMFCTESTView::WPFCALL_ALIGNWIN(WPARAM wParam, LPARAM lParam)
 LRESULT CVTKMFCTESTView::WPFCALL_MANUALALIGNWIN(WPARAM wParam, LPARAM lParam)
 {
 	if (wParam == 0)
+	{
+		if (lParam == CT)
+		{
+			AfxMessageBox(_T("CT"));
+		}
+		else if (lParam == UPPERJAW)
+		{
+			AfxMessageBox(_T("UPPERJAW"));
+		}
+		else if (lParam == LOWERJAW)
+		{
+			AfxMessageBox(_T("LOWERJAW"));
+		}
+		else if (lParam == UPPERJAW_CROWN)
+		{
+			AfxMessageBox(_T("UPPERJAW_CROWN"));
+		}
+		else if (lParam == LOWERJAW_CROWN)
+		{
+			AfxMessageBox(_T("LOWERJAW_CROWN"));
+		}
+		else if (lParam == FACE_2D)
+		{
+			AfxMessageBox(_T("FACE_2D"));
+		}
+		else if (lParam == FACE_3D)
+		{
+			AfxMessageBox(_T("FACE_3D"));
+		}
+	}
+	else if (wParam == 1)
 	{
 		if (lParam == 0)
 		{
@@ -4955,11 +5040,11 @@ LRESULT CVTKMFCTESTView::WPFCALL(WPARAM wParam, LPARAM lParam)
 	}
 	else if (wParam == Save_file)//存檔
 	{
-		int kk = pFrame->m_fileprocesswin->GetHeight();
-		CString yy;
-		yy.Format(_T("%d"), kk);
-		AfxMessageBox(yy);
-		//AfxMessageBox(_T("存檔"));
+		//int kk = pFrame->m_fileprocesswin->GetHeight();
+		//CString yy;
+		//yy.Format(_T("%d"), kk);
+		//AfxMessageBox(yy);
+		AfxMessageBox(_T("存檔"));
 		//CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 		//pFrame->m_fileprocesswin->Hide();
 	}

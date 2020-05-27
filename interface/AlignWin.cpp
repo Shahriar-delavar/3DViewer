@@ -54,3 +54,4 @@ void AlignWin::SetPosition(int MFCFrameTop, int MFCFrameLeft)
 {
 	gwcObject->SetFramePosition(MFCFrameTop, MFCFrameLeft);
 }
+

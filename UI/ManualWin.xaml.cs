@@ -35,7 +35,7 @@ namespace UI
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MANUALALIGN, (IntPtr)0, (IntPtr)model_combo.SelectedIndex);
         }
 
         public double GetWidth()
@@ -66,13 +66,13 @@ namespace UI
             switch (btn.Name)
             {
                 case "button_alignpoint_add":
-                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MANUALALIGN, (IntPtr)0, (IntPtr)0);
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MANUALALIGN, (IntPtr)1, (IntPtr)0);
                     break;
                 case "button_alignpoint_confirm":
-                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MANUALALIGN, (IntPtr)0, (IntPtr)1);
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MANUALALIGN, (IntPtr)1, (IntPtr)1);
                     break;
                 case "button_alignpoint_reset":
-                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MANUALALIGN, (IntPtr)0, (IntPtr)2);
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MANUALALIGN, (IntPtr)1, (IntPtr)2);
                     break;
             }
         }

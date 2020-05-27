@@ -31,11 +31,15 @@ namespace UI
         public IntPtr HostHandle { set; get; }
 
         private int WM_WPFUI_FILEPROCESSWIN = 1024 + 103;
+
+        public bool file_type_is_ok;
         public FileImport_Upperjaw()
         {
             InitializeComponent();
 
             Selected_folder_path = "c:\\DicomData";
+
+            file_type_is_ok = false;
 
             m_model_path.Text = Selected_folder_path;
 
@@ -75,6 +79,16 @@ namespace UI
             {
                 m_model_path.Text = dialog.FileName;
                 Selected_folder_path = System.IO.Path.GetDirectoryName(dialog.FileName);
+                Selected_folder_path = m_model_path.Text.ToString();
+            }
+
+            if (Selected_folder_path.IndexOf(".stl") == -1)
+            {
+                file_type_is_ok = false;
+            }
+            else
+            {
+                file_type_is_ok = true;
             }
         }
         private void Button_Event_Click(object sender, RoutedEventArgs e)
@@ -87,7 +101,8 @@ namespace UI
                     SendMessageClass.SendMessage(HostHandle, WM_WPFUI_FILEPROCESSWIN, (IntPtr)20, (IntPtr)0);
                     break;
                 case "BtnOpen":
-                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_FILEPROCESSWIN, (IntPtr)20, (IntPtr)1);
+                    if (file_type_is_ok)  SendMessageClass.SendMessage(HostHandle, WM_WPFUI_FILEPROCESSWIN, (IntPtr)20, (IntPtr)1);
+
                     break;
                 case "BtnCancel":
                     SendMessageClass.SendMessage(HostHandle, WM_WPFUI_FILEPROCESSWIN, (IntPtr)20, (IntPtr)2);

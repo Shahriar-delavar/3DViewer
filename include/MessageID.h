@@ -36,6 +36,18 @@ enum InfoSettingtype
 	show_info,
 	show_setting
 };
+
+enum alignstype
+{
+	CT,
+	UPPERJAW,
+	LOWERJAW,
+	UPPERJAW_CROWN,
+	LOWERJAW_CROWN,
+	FACE_2D,
+	FACE_3D
+};
+
 // 2008/07/24 kenny, 執行Message queue裡面的東西,讓單執行緒的UI看起來不至於沒有回應
 // 暫時的做法而已,多執行緒才是正確的做法
 inline void DoEvents()

@@ -55,13 +55,30 @@ namespace UI
         }
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            SendMessageClass.SendMessage(HostHandle, WM_WPFUI_ALIGN, (IntPtr)0, (IntPtr)fixed_combo.SelectedIndex);
+            //string selectvalue = ((ComboBoxItem)fixed_combo.SelectedItem).Content.ToString();
+            //MessageBox.Show(selectvalue);
         }
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-
+            SendMessageClass.SendMessage(HostHandle, WM_WPFUI_ALIGN, (IntPtr)1, (IntPtr)floating_combo.SelectedIndex);
+            //string selectvalue = ((ComboBoxItem)floating_combo.SelectedItem).Content.ToString();
+            //MessageBox.Show(selectvalue);
         }
+
+        public string GetCombox_fixed_select()
+        {
+            string selectvalue = ((ComboBoxItem)fixed_combo.SelectedItem).Content.ToString();
+            return selectvalue;
+        }
+
+        public string GetCombox_floating_select()
+        {
+            string selectvalue = ((ComboBoxItem)floating_combo.SelectedItem).Content.ToString();
+            return selectvalue;
+        }
+
         private void Button_Event_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
