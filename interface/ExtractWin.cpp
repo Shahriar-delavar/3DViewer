@@ -41,12 +41,12 @@ HWND ExtractWin::GetHWND()
 
 int ExtractWin::GetWidth()
 {
-	return gwcObject->GetWidth();
+	return (int)gwcObject->Width;
 }
 
 int ExtractWin::GetHeight()
 {
-	return gwcObject->GetHeight();
+	return (int)gwcObject->Height;
 }
 
 void ExtractWin::SetPosition(int MFCFrameTop, int MFCFrameLeft)

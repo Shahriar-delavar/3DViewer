@@ -42,12 +42,12 @@ HWND RemoveTooth::GetHWND()
 
 int RemoveTooth::GetWidth()
 {
-	return gwcObject->GetWidth();
+	return (int)gwcObject->Width;
 }
 
 int RemoveTooth::GetHeight()
 {
-	return gwcObject->GetHeight();
+	return (int)gwcObject->Height;
 }
 
 void RemoveTooth::SetPosition(int MFCFrameTop, int MFCFrameLeft)

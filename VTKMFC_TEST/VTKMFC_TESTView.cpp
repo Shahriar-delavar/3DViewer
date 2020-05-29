@@ -4826,13 +4826,13 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 	CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 	WPFDLG_ALL_HIDE(2);
 
+	CRect nowSizeClient;
+	GetClientRect(nowSizeClient);
+	ClientToScreen(nowSizeClient);
 	if (wParam == 0)//ct process
 	{
 		if (lParam == 1)
 		{
-			CRect nowSizeClient;
-			GetClientRect(nowSizeClient);
-
 			int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2 - pFrame->m_fileimportct->GetWidth() / 2;
 			int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2 - pFrame->m_fileimportct->GetHeight() / 2;
 
@@ -4852,9 +4852,6 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 	{
 		if (lParam == 1)
 		{
-			CRect nowSizeClient;
-			GetClientRect(nowSizeClient);
-
 			int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2 - pFrame->m_fileimportupperjaw->GetWidth() / 2;
 			int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2 - pFrame->m_fileimportupperjaw->GetHeight() / 2;
 
@@ -4867,8 +4864,9 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 		}
 		else if (lParam == 3)
 		{
-			int min_x = 0;
-			int min_y = 550;
+			int min_x = nowSizeClient.left;
+			int min_y = nowSizeClient.bottom - pFrame->m_fileprocesswin->GetHeight() - pFrame->m_removetooth->GetHeight() - 10;;
+
 			pFrame->m_removetooth->SetPosition(min_y, min_x);
 			pFrame->m_removetooth->Show();
 		}
@@ -5010,31 +5008,35 @@ LRESULT CVTKMFCTESTView::WPFCALL(WPARAM wParam, LPARAM lParam)
 	CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 	WPFDLG_ALL_HIDE(0);
 
+	CRect nowSizeClient;
+	GetClientRect(nowSizeClient);
+	ClientToScreen(nowSizeClient);
+
 	if (wParam == Read_file)//開檔
 	{
-		int min_x = 0;
-		int min_y = 679;
+		int min_x = nowSizeClient.left;
+		int min_y = nowSizeClient.bottom - pFrame->m_fileprocesswin->GetHeight();
 		pFrame->m_fileprocesswin->SetPosition(min_y, min_x);
 		pFrame->m_fileprocesswin->Show();
 	}
 	else if (wParam == Model_align)//定位
 	{
-		int min_x = 0;
-		int min_y = 679;
+		int min_x = nowSizeClient.left;
+		int min_y = nowSizeClient.bottom - pFrame->m_alignwin->GetHeight();
 		pFrame->m_alignwin->SetPosition(min_y, min_x);
 		pFrame->m_alignwin->Show();
 	}
 	else if (wParam == Model_manual)//手調
 	{
-		int min_x = 0;
-		int min_y = 679;
+		int min_x = nowSizeClient.left;
+		int min_y = nowSizeClient.bottom - pFrame->m_manualwin->GetHeight();
 		pFrame->m_manualwin->SetPosition(min_y, min_x);
 		pFrame->m_manualwin->Show();
 	}
 	else if (wParam == Extract_feature)//萃取
 	{
-		int min_x = 0;
-		int min_y = 679;
+		int min_x = nowSizeClient.left;
+		int min_y = nowSizeClient.bottom - pFrame->m_extract->GetHeight();
 		pFrame->m_extract->SetPosition(min_y, min_x);
 		pFrame->m_extract->Show();
 	}

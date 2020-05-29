@@ -291,7 +291,33 @@
             <Viewbox>
                 <Image Source="{DynamicResource icon_dialogB_ref_3dDrawingImage}"/>
             </Viewbox>
+            <Viewbox>
+                <Image Source="{DynamicResource icon_CT_imageDrawingImage}"/>
+            </Viewbox>
+
         </StackPanel>
+
+        <StackPanel Grid.Row="5" HorizontalAlignment="Left" Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="Viewbox">
+                    <Setter Property="Height" Value="36"/>
+                    <Setter Property="Width" Value="36"/>
+                    <Setter Property="Margin" Value="6, 0"/>
+                    <Setter Property="Stretch" Value="Uniform"/>
+                </Style>
+            </StackPanel.Resources>
+            <Viewbox>
+                <Image Source="{DynamicResource icon_inteware_lowDrawingImage}"/>
+            </Viewbox>
+            <Viewbox>
+                <Image Source="{DynamicResource icon_inteware_upDrawingImage}"/>
+            </Viewbox>
+            <Viewbox>
+                <Image Source="{DynamicResource icon_stlcrownDrawingImage}"/>
+            </Viewbox>
+
+        </StackPanel>
+
 
         <Grid Grid.Row="11">
             <Grid.RowDefinitions>

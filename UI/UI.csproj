@@ -111,6 +111,9 @@
       <DependentUpon>SamplePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SendMessageClass.cs" />
+    <Compile Include="ShowObjControl.xaml.cs">
+      <DependentUpon>ShowObjControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workflow.xaml.cs">
       <DependentUpon>Workflow.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowObjControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -24,11 +24,12 @@ public:
 public:
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();
-	virtual BOOL OnIdle(LONG lCount);
+//	virtual BOOL OnIdle(LONG lCount);
 
 // Implementation
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
+	virtual BOOL OnIdle(LONG lCount);
 };
 
 extern CVTKMFCTESTApp theApp;

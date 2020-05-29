@@ -42,12 +42,12 @@ HWND AlignWin::GetHWND()
 
 int AlignWin::GetWidth()
 {
-	return gwcObject->GetWidth();
+	return (int)gwcObject->Width;
 }
 
 int AlignWin::GetHeight()
 {
-	return gwcObject->GetHeight();
+	return (int)gwcObject->Height;
 }
 
 void AlignWin::SetPosition(int MFCFrameTop, int MFCFrameLeft)

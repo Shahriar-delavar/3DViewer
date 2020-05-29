@@ -24,6 +24,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_NCHITTEST()
 	ON_WM_NCLBUTTONDOWN()
 	ON_WM_NCMOUSEMOVE()
+	ON_WM_SIZE()
+	ON_WM_MOVE()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -379,6 +381,71 @@ void CMainFrame::DrawTitleBar(CDC *pDC)
 	}
 }
 
+void CMainFrame::SetWPFinterfacePos()
+{
+	//return;
+	CRect nowSizeClient;
+	GetClientRect(nowSizeClient);
+	ClientToScreen(nowSizeClient);
+
+	if (m_btnfunbar != NULL)
+	{
+		int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2 - m_btnfunbar->GetWidth() / 2;
+		int mid_y = nowSizeClient.top + 10;
+		::SetWindowPos(m_btnfunbar->GetHWND(), NULL, mid_x, mid_y, m_btnfunbar->GetWidth(), m_btnfunbar->GetHeight(), NULL);
+	}
+
+	if (m_infosetting != NULL)
+	{
+		int mid_x = nowSizeClient.left + 10;
+		int mid_y = nowSizeClient.top + 10;
+		::SetWindowPos(m_infosetting->GetHWND(), NULL, mid_x, mid_y, m_infosetting->GetWidth(), m_infosetting->GetHeight(), NULL);
+	}
+
+	if (m_showobjcontrol != NULL)
+	{
+		int mid_x = nowSizeClient.right - 10 - m_showobjcontrol->GetWidth();
+		int mid_y = nowSizeClient.top + 10;
+		::SetWindowPos(m_showobjcontrol->GetHWND(), NULL, mid_x, mid_y, m_showobjcontrol->GetWidth(), m_showobjcontrol->GetHeight(), NULL);
+		::ShowWindow(m_showobjcontrol->GetHWND(), SW_SHOW);
+	}
+
+	if (m_fileprocesswin != NULL)
+	{
+		int min_x = nowSizeClient.left;
+		int min_y = nowSizeClient.bottom - m_fileprocesswin->GetHeight();
+		m_fileprocesswin->SetPosition(min_y, min_x);
+	}
+
+	if (m_alignwin != NULL)
+	{
+		int min_x = nowSizeClient.left;
+		int min_y = nowSizeClient.bottom - m_alignwin->GetHeight();
+		m_alignwin->SetPosition(min_y, min_x);
+	}
+
+	if (m_manualwin != NULL)//手調
+	{
+		int min_x = nowSizeClient.left;
+		int min_y = nowSizeClient.bottom - m_manualwin->GetHeight();
+		m_manualwin->SetPosition(min_y, min_x);
+	}
+
+	if (m_extract != NULL)//手調
+	{
+		int min_x = nowSizeClient.left;
+		int min_y = nowSizeClient.bottom - m_extract->GetHeight();
+		m_extract->SetPosition(min_y, min_x);
+	}
+
+	if (m_removetooth != NULL)
+	{
+		int min_x = nowSizeClient.left;
+		int min_y = nowSizeClient.bottom - m_fileprocesswin->GetHeight() - m_removetooth->GetHeight() - 10;;
+		m_removetooth->SetPosition(min_y, min_x);
+	}
+}
+
 void CMainFrame::CreateWpfDialog()
 {
 	CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
@@ -405,40 +472,39 @@ void CMainFrame::CreateWpfDialog()
 		::ShowWindow(m_infosetting->GetHWND(), SW_SHOW);
 	}
 
+	if (m_showobjcontrol == NULL)
+	{
+		m_showobjcontrol = new ShowObjControl(GetActiveView()->GetSafeHwnd(), m_hWnd);
+		CRect nowSizeClient;
+		GetClientRect(nowSizeClient);
+
+		int mid_x = nowSizeClient.right -10 - m_showobjcontrol->GetWidth();
+		::SetWindowPos(m_showobjcontrol->GetHWND(), NULL, mid_x, 50, m_showobjcontrol->GetWidth(), m_showobjcontrol->GetHeight(), NULL);
+		::ShowWindow(m_showobjcontrol->GetHWND(), SW_SHOW);
+	}
+
 	if (m_fileprocesswin == NULL)
 	{
-		//CRect nowSizeClient;
-		//GetClientRect(nowSizeClient);
-
-		//int min_x = 0;
-		//int min_y = 0;
-
-		//CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 		m_fileprocesswin = new FileProcessWin(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
-		//m_fileprocesswin->SetPosition(min_y, min_x);
 	}
 
 	if (m_removetooth == NULL)
 	{
-		//CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 		m_removetooth = new RemoveTooth(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
 	}
 
 	if (m_alignwin == NULL)
 	{
-		//CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 		m_alignwin = new AlignWin(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
 	}
 
 	if (m_manualwin == NULL)
 	{
-		//CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 		m_manualwin = new ManualWin(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
 	}
 
 	if (m_extract == NULL)
 	{
-		//CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 		m_extract = new ExtractWin(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
 	}
 
@@ -456,4 +522,21 @@ void CMainFrame::CreateWpfDialog()
 	{
 		m_fileimportlowerjaw = new FileImport_Lowerjaw(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
 	}
+}
+
+void CMainFrame::OnSize(UINT nType, int cx, int cy)
+{
+	CFrameWnd::OnSize(nType, cx, cy);
+
+	// TODO: 在此加入您的訊息處理常式程式碼
+	SetWPFinterfacePos();
+}
+
+
+void CMainFrame::OnMove(int x, int y)
+{
+	CFrameWnd::OnMove(x, y);
+
+	// TODO: 在此加入您的訊息處理常式程式碼
+	SetWPFinterfacePos();
 }

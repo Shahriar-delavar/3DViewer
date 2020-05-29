@@ -41,12 +41,12 @@ HWND ManualWin::GetHWND()
 
 int ManualWin::GetWidth()
 {
-	return gwcObject->GetWidth();
+	return (int)gwcObject->Width;
 }
 
 int ManualWin::GetHeight()
 {
-	return gwcObject->GetHeight();
+	return (int)gwcObject->Height;
 }
 
 void ManualWin::SetPosition(int MFCFrameTop, int MFCFrameLeft)

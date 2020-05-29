@@ -197,13 +197,23 @@ void CVTKMFCTESTApp::OnAppAbout()
 }
 
 
-BOOL CVTKMFCTESTApp::OnIdle(LONG lCount)
-{
-	// TODO: Add your specialized code here and/or call the base class
-
-	return CWinApp::OnIdle(lCount);
-}
+//BOOL CVTKMFCTESTApp::OnIdle(LONG lCount)
+//{
+//	// TODO: Add your specialized code here and/or call the base class
+//
+//	return CWinApp::OnIdle(lCount);
+//}
 // CVTKMFCTESTApp message handlers
 
 
 
+
+
+BOOL CVTKMFCTESTApp::OnIdle(LONG lCount)
+{
+	// TODO: 在此加入特定的程式碼和 (或) 呼叫基底類別
+	//CMainFrame* pMain = (CMainFrame*)CWinThread::m_pMainWnd;
+	//pMain->SetWPFinterfacePos();
+
+	return CWinApp::OnIdle(lCount);
+}

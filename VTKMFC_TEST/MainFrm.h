@@ -14,6 +14,7 @@
 #include "FileImport_Lowerjaw.h"
 #include "ExtractWin.h"
 #include "InfoSetting.h"
+#include "ShowObjControl.h"
 
 class CMainFrame : public CFrameWnd
 {
@@ -37,9 +38,10 @@ public:
 	FileImport_Lowerjaw *m_fileimportlowerjaw = NULL;
 	ExtractWin *m_extract = NULL;
 	InfoSetting *m_infosetting = NULL;
-
+	ShowObjControl *m_showobjcontrol = NULL;
 
 	void CreateWpfDialog();
+	void SetWPFinterfacePos();
 
 // Overrides
 public:
@@ -71,6 +73,8 @@ public:
 	void DrawTitleBar(CDC *pDC);
 	CRect m_rtButtExit, m_rtIcon, m_rtButtMin, m_rtButtMax;
 	afx_msg void OnNcMouseMove(UINT nHitTest, CPoint point);
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg void OnMove(int x, int y);
 };
 
 
