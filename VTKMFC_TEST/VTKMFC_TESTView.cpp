@@ -650,6 +650,7 @@ BEGIN_MESSAGE_MAP(CVTKMFCTESTView, CView)
 	ON_MESSAGE(WM_WPFUI_MANUALALIGN, WPFCALL_MANUALALIGNWIN)
 	ON_MESSAGE(WM_WPFUI_EXTRACT, WPFCALL_EXTRACT)
 	ON_MESSAGE(WM_WPFUI_INFOSETTING, WPFCALL_INFOSETTING)
+	ON_MESSAGE(WM_WPFUI_SHOWSETTING, WPFCALL_SHOWSETTING)
 
 	ON_WM_KEYDOWN()
 	ON_WM_CHAR()
@@ -819,7 +820,7 @@ void CVTKMFCTESTView::OnInitialUpdate()
 
 	this->pvtkMFCWindow = new vtkMFCWindow(this);
 
-	this->pvtkMFCWindow->GetRenderWindow()->SetDesiredUpdateRate(1.0);
+	this->pvtkMFCWindow->GetRenderWindow()->SetDesiredUpdateRate(0.001);
 	//this->pvtkMFCWindow->GetRenderWindow()->AddRenderer(this->pvtkRenderer);
 	//this->pvtkMFCWindow->GetRenderWindow()->AddRenderer(this->pvtkRenderer_dcm);
 	//this->pvtkMFCWindow->GetRenderWindow()->AddRenderer(this->pvtkRenderer_cross);
@@ -4755,6 +4756,143 @@ LRESULT CVTKMFCTESTView::WPFCALL_INFOSETTING(WPARAM wParam, LPARAM lParam)
 			//AfxMessageBox(_T("show setting"));
 		}
 	}
+	return 1;
+}
+
+LRESULT CVTKMFCTESTView::WPFCALL_SHOWSETTING(WPARAM wParam, LPARAM lParam)
+{
+	if (wParam == 0)//功能隱藏
+	{
+		if (lParam == SHOWDLG)
+		{
+			AfxMessageBox(_T("顯示"));
+		}
+		else if (lParam == HIDEDLG)
+		{
+			AfxMessageBox(_T("隱藏"));
+		}
+	}
+	else if (wParam == 1)//視角切換
+	{
+		if (lParam == VIEW_LEFT)
+		{
+			//AfxMessageBox(_T("左視"));
+		}
+		else if (lParam == VIEW_FRONT)
+		{
+			//AfxMessageBox(_T("前視"));
+		}
+		else if (lParam == VIEW_RIGHT)
+		{
+			//AfxMessageBox(_T("右視"));
+		}
+	}
+	else if (wParam == 2)//顯示開關
+	{
+		if (lParam == SHOW_3D)
+		{
+			//AfxMessageBox(_T("3D顯示"));
+		}
+		else if (lParam == HIDE_3D)
+		{
+			//AfxMessageBox(_T("2D顯示"));
+		}
+		else if (lParam == SHOW_INFOR)
+		{
+			//AfxMessageBox(_T("病患資訊顯示"));
+		}
+		else if (lParam == HIDE_INFOR)
+		{
+			//AfxMessageBox(_T("病患資訊隱藏"));
+		}
+		else if (lParam == SHOW_GRID)
+		{
+			//AfxMessageBox(_T("GRID顯示"));
+		}
+		else if (lParam == HIDE_GRID)
+		{
+			//AfxMessageBox(_T("GRID隱藏"));
+		}
+		else if (lParam == SHOW_COLORMAP)
+		{
+			//AfxMessageBox(_T("誤差分析顯示"));
+		}
+		else if (lParam == HIDE_COLORMAP)
+		{
+			//AfxMessageBox(_T("誤差分析隱藏"));
+		}
+	}
+	else if (wParam == 3)//volume Rendering
+	{
+		if (lParam == VOLUME_1)
+		{
+			//AfxMessageBox(_T("1"));
+		}
+		else if (lParam == VOLUME_2)
+		{
+			//AfxMessageBox(_T("2"));
+		}
+		else if (lParam == VOLUME_3)
+		{
+			//AfxMessageBox(_T("3"));
+		}
+		else if (lParam == VOLUME_4)
+		{
+			//AfxMessageBox(_T("4"));
+		}
+		else if (lParam == VOLUME_5)
+		{
+			//AfxMessageBox(_T("5"));
+		}
+		else if (lParam == VOLUME_6)
+		{
+			//AfxMessageBox(_T("6"));
+		}
+	}
+	else if (wParam == 4)//物件顯示
+	{
+		if (lParam == BUTTON_CT)
+		{
+			AfxMessageBox(_T("ct"));
+		}
+		else if (lParam == BUTTON_UPPER)
+		{
+			AfxMessageBox(_T("upper"));
+		}
+		else if (lParam == BUTTON_LOWER)
+		{
+			AfxMessageBox(_T("lower"));
+		}
+		else if (lParam == BUTTON_CROWN)
+		{
+			AfxMessageBox(_T("crown"));
+		}
+	}
+	else if (wParam == 5)//slider_ct
+	{
+	CString yy;
+	yy.Format(_T("%d"), (int)lParam);
+	AfxMessageBox(yy);
+	}
+	else if (wParam == 6)//slider_maxi
+	{
+	CString yy;
+	yy.Format(_T("%d"), (int)lParam);
+	AfxMessageBox(yy);
+	}
+	else if (wParam == 7)//slider_mand
+	{
+	CString yy;
+	yy.Format(_T("%d"), (int)lParam);
+	AfxMessageBox(yy);
+	}
+	else if (wParam == 8)//slide_crown
+	{
+	CString yy;
+	yy.Format(_T("%d"), (int)lParam);
+	AfxMessageBox(yy);
+	}
+
 	return 1;
 }
 

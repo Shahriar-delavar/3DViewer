@@ -32,7 +32,7 @@
                 <Grid>
                     <Label
                       Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
-                      Content="Extraction"
+                      Content="Segmentation"
                       FontSize="21" FontWeight="Bold" Foreground="White" />
                 </Grid>
             </Border>
@@ -64,7 +64,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="1">
-                    <GroupBox Header="Extract" BorderBrush="Black">
+                    <GroupBox Header="Segment" BorderBrush="Black">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>

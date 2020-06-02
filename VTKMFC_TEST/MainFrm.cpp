@@ -406,7 +406,7 @@ void CMainFrame::SetWPFinterfacePos()
 	{
 		int mid_x = nowSizeClient.right - 10 - m_showobjcontrol->GetWidth();
 		int mid_y = nowSizeClient.top + 10;
-		::SetWindowPos(m_showobjcontrol->GetHWND(), NULL, mid_x, mid_y, m_showobjcontrol->GetWidth(), m_showobjcontrol->GetHeight(), NULL);
+		::SetWindowPos(m_showobjcontrol->GetHWND(), NULL, mid_x, mid_y, m_showobjcontrol->GetWidth(), nowSizeClient.Height(), NULL);
 		::ShowWindow(m_showobjcontrol->GetHWND(), SW_SHOW);
 	}
 
@@ -479,7 +479,7 @@ void CMainFrame::CreateWpfDialog()
 		GetClientRect(nowSizeClient);
 
 		int mid_x = nowSizeClient.right -10 - m_showobjcontrol->GetWidth();
-		::SetWindowPos(m_showobjcontrol->GetHWND(), NULL, mid_x, 50, m_showobjcontrol->GetWidth(), m_showobjcontrol->GetHeight(), NULL);
+		::SetWindowPos(m_showobjcontrol->GetHWND(), NULL, mid_x, 50, m_showobjcontrol->GetWidth(), nowSizeClient.Height(), NULL);
 		::ShowWindow(m_showobjcontrol->GetHWND(), SW_SHOW);
 	}
 

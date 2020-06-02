@@ -1,11 +1,9 @@
-﻿<Window x:Class="UI.FileProcessWin"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UI"
-        mc:Ignorable="d" ShowInTaskbar="False"
-        Title="FileProcessWin" Height="405" Width="250" WindowStyle="None" Topmost="True" ResizeMode="NoResize">
+﻿<Window
+  x:Class="UI.FileProcessWin" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:UI" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  Title="FileProcessWin" Width="250" Height="405"
+  ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True"
+  WindowStyle="None" mc:Ignorable="d">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -14,107 +12,113 @@
                 <ResourceDictionary Source="BasicStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="40"/>
-                <Setter Property="Height" Value="50"/>
-                <Setter Property="BorderThickness" Value="0"/>
-                <Setter Property="Background" Value="Transparent"/>
-                <EventSetter Event="Click" Handler="Button_Event_Click"/>
+                <Setter Property="Width" Value="40" />
+                <Setter Property="Height" Value="50" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Background" Value="Transparent" />
+                <EventSetter Event="Click" Handler="Button_Event_Click" />
             </Style>
         </ResourceDictionary>
     </Window.Resources>
 
     <Border BorderThickness="0">
         <DockPanel>
-            <Border Height="42" Background="#FFE08A1E" DockPanel.Dock="Top" MouseLeftButtonDown="bdrWindowTitle_MouseLeftButtonDown">
+            <Border
+              Height="42" Background="#FFE08A1E" DockPanel.Dock="Top"
+              MouseLeftButtonDown="bdrWindowTitle_MouseLeftButtonDown">
                 <Grid>
                     <Label
                       Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
-                      Content="Open Project"
-                      FontSize="21" FontWeight="Bold" Foreground="White" />
+                      Content="Open Project" FontSize="21" FontWeight="Bold"
+                      Foreground="White" />
                 </Grid>
             </Border>
 
             <Grid x:Name="Bigmap" Margin="5,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="48"/>
-                    <RowDefinition/>
+                    <RowDefinition Height="48" />
+                    <RowDefinition />
 
                 </Grid.RowDefinitions>
-                
+
                 <Grid x:Name="tab_title" Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <Label Grid.Column="0" Content="New Project" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#FF756450"/>
-                    <Label Grid.Column="1" Content="Project" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#FF756450"/>
+                    <Label
+                      Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      Content="New Project" FontWeight="Bold" Foreground="#FF756450" />
+                    <Label
+                      Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      Content="Project" FontWeight="Bold" Foreground="#FF756450" />
                 </Grid>
 
                 <StackPanel Grid.Row="1">
-                    <GroupBox Header="CT Data" BorderBrush="Black" Margin="0,5,0,0">
+                    <GroupBox Margin="0,5,0,0" BorderBrush="Black" Header="CT Data">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Name="button_ct_load">
-                                <Image Source="{StaticResource icon_File_ctloadImage}"/>
+                            <Button Name="button_ct_load" Grid.Column="0">
+                                <Image Source="{StaticResource icon_File_ctloadImage}" />
                             </Button>
-                            <Button Grid.Column="1" Name="button_ct_range">
-                                <Image Source="{StaticResource icon_File_ctrangeImage}"/>
+                            <Button Name="button_ct_range" Grid.Column="1">
+                                <Image Source="{StaticResource icon_File_ctrangeImage}" />
                             </Button>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Upper jaw" BorderBrush="Black" Margin="0,5,0,0">
+                    <GroupBox Margin="0,5,0,0" BorderBrush="Black" Header="Upper jaw">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Name="button_upper_load">
-                                <Image Source="{StaticResource icon_File_jawloadImage}"/>
+                            <Button Name="button_upper_load" Grid.Column="0">
+                                <Image Source="{StaticResource icon_File_jawloadImage}" />
                             </Button>
-                            <Button Grid.Column="1" Name="button_upper_crown">
-                                <Image Source="{StaticResource icon_File_jawcrownImage}"/>
+                            <Button Name="button_upper_crown" Grid.Column="1">
+                                <Image Source="{StaticResource icon_File_jawcrownImage}" />
                             </Button>
-                            <Button Grid.Column="2" Name="button_upper_cut">
-                                <Image Source="{StaticResource icon_File_jawcutImage}"/>
+                            <Button Name="button_upper_cut" Grid.Column="2">
+                                <Image Source="{StaticResource icon_File_jawcutImage}" />
                             </Button>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Lower jaw" BorderBrush="Black" Margin="0,5,0,0">
+                    <GroupBox Margin="0,5,0,0" BorderBrush="Black" Header="Lower jaw">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Name="button_lower_load">
-                                <Image Source="{StaticResource icon_File_jawloadImage}"/>
+                            <Button Name="button_lower_load" Grid.Column="0">
+                                <Image Source="{StaticResource icon_File_jawloadImage}" />
                             </Button>
-                            <Button Grid.Column="1" Name="button_lower_crown">
-                                <Image Source="{StaticResource icon_File_jawcrownImage}"/>
+                            <Button Name="button_lower_crown" Grid.Column="1">
+                                <Image Source="{StaticResource icon_File_jawcrownImage}" />
                             </Button>
-                            <Button Grid.Column="2" Name="button_lower_cut">
-                                <Image Source="{StaticResource icon_File_jawcutImage}"/>
+                            <Button Name="button_lower_cut" Grid.Column="2">
+                                <Image Source="{StaticResource icon_File_jawcutImage}" />
                             </Button>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Face" BorderBrush="Black" Margin="0,5,0,0">
+                    <GroupBox Margin="0,5,0,0" BorderBrush="Black" Header="Face">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Name="button_face_2d">
-                                <Image Source="{StaticResource icon_File_face2dImage}"/>
+                            <Button Name="button_face_2d" Grid.Column="0">
+                                <Image Source="{StaticResource icon_File_face2dImage}" />
                             </Button>
-                            <Button Grid.Column="1" Name="button_face_3d">
-                                <Image Source="{StaticResource icon_File_face3dImage}"/>
+                            <Button Name="button_face_3d" Grid.Column="1">
+                                <Image Source="{StaticResource icon_File_face3dImage}" />
                             </Button>
                         </Grid>
                     </GroupBox>
