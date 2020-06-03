@@ -24,6 +24,24 @@
                 <Setter Property="Width" Value="40" />
                 <Setter Property="Height" Value="50" />
             </Style>
+
+            <Style x:Key="b_open" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="Width" Value="40" />
+                <Setter Property="Height" Value="50" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -35,27 +53,32 @@
 
         <Button
           Name="button1" Grid.Row="0" Grid.Column="0"
-          Click="button1_Click">
+          Click="button1_Click"
+          Style="{StaticResource b_open}">
             <Image Source="{StaticResource icon_folderDrawingImage}" />
         </Button>
         <Button
           Name="button2" Grid.Row="0" Grid.Column="1"
-          Click="button2_Click">
+          Click="button2_Click"
+          Style="{StaticResource b_open}">
             <Image Source="{StaticResource icon_AlignDrawingImage}" />
         </Button>
         <Button
           Name="button3" Grid.Row="0" Grid.Column="2"
-          Click="button3_Click">
+          Click="button3_Click"
+          Style="{StaticResource b_open}">
             <Image Source="{StaticResource icon_ManulDrawingImage}" />
         </Button>
         <Button
           Name="button4" Grid.Row="0" Grid.Column="3"
-          Click="button4_Click">
+          Click="button4_Click"
+          Style="{StaticResource b_open}">
             <Image Source="{StaticResource icon_ExtractionDrawingImage}" />
         </Button>
         <Button
           Name="button5" Grid.Row="0" Grid.Column="4"
-          Click="button5_Click">
+          Click="button5_Click"
+          Style="{StaticResource b_open}">
             <Image Source="{StaticResource icon_SaveDrawingImage}" />
         </Button>
     </Grid>

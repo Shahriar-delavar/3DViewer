@@ -15,6 +15,7 @@
 #include "ExtractWin.h"
 #include "InfoSetting.h"
 #include "ShowObjControl.h"
+#include "ModelControl.h"
 
 class CMainFrame : public CFrameWnd
 {
@@ -39,6 +40,7 @@ public:
 	ExtractWin *m_extract = NULL;
 	InfoSetting *m_infosetting = NULL;
 	ShowObjControl *m_showobjcontrol = NULL;
+	ModelControl *m_modelcontrol1 = NULL;
 
 	void CreateWpfDialog();
 	void SetWPFinterfacePos();

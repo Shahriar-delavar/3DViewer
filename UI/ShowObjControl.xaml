@@ -11,30 +11,6 @@
                 <ResourceDictionary Source="BasicStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <!--<Style x:Key="ToggleButton1" TargetType="ToggleButton">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="Transparent" />
-                <EventSetter Event="Checked" Handler="Checked_volume" />
-                <EventSetter Event="Unchecked" Handler="UnChecked_volume" />
-                <Style.Triggers>
-                    <Trigger Property="IsChecked" Value="True">
-                        <Setter Property="Content">
-                            <Setter.Value>
-                                <Image Height="30" Source="{StaticResource icon_step1_clickDrawingImage}" />
-                            </Setter.Value>
-                        </Setter>
-                    </Trigger>
-
-                    <Trigger Property="IsChecked" Value="False">
-                        <Setter Property="Content">
-                            <Setter.Value>
-                                <Image Height="30" Source="{StaticResource icon_step1DrawingImage}"/>
-                            </Setter.Value>
-                        </Setter>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>-->
-
             <Style x:Key="ItemStackPanel" TargetType="{x:Type StackPanel}">
                 <Setter Property="Margin" Value="0,0,0,0" />
             </Style>
@@ -359,11 +335,23 @@
                                 <Setter Property="HorizontalAlignment" Value="Center" />
                             </Style>
 
-                            <Style x:Key="ToggleButton1" TargetType="ToggleButton">
+                            <Style x:Key="commontogglebutton" TargetType="ToggleButton">
                                 <Setter Property="Background" Value="Transparent" />
                                 <Setter Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Grid Background="{TemplateBinding Background}">
+                                                <ContentPresenter />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
                                 <EventSetter Event="Checked" Handler="Checked_volume" />
                                 <EventSetter Event="Unchecked" Handler="UnChecked_volume" />
+                            </Style>
+
+                            <Style x:Key="ToggleButton1" BasedOn="{StaticResource commontogglebutton}" TargetType="ToggleButton">
                                 <Style.Triggers>
                                     <Trigger Property="IsChecked" Value="True">
                                         <Setter Property="Content">
@@ -376,17 +364,14 @@
                                     <Trigger Property="IsChecked" Value="False">
                                         <Setter Property="Content">
                                             <Setter.Value>
-                                                <Image Height="30" Source="{StaticResource icon_step1DrawingImage}"/>
+                                                <Image Height="30" Source="{StaticResource icon_step1DrawingImage}" />
                                             </Setter.Value>
                                         </Setter>
                                     </Trigger>
                                 </Style.Triggers>
+
                             </Style>
-                            <Style x:Key="ToggleButton2" TargetType="ToggleButton">
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="BorderBrush" Value="Transparent" />
-                                <EventSetter Event="Checked" Handler="Checked_volume" />
-                                <EventSetter Event="Unchecked" Handler="UnChecked_volume" />
+                            <Style x:Key="ToggleButton2" BasedOn="{StaticResource commontogglebutton}" TargetType="ToggleButton">
                                 <Style.Triggers>
                                     <Trigger Property="IsChecked" Value="True">
                                         <Setter Property="Content">
@@ -399,17 +384,13 @@
                                     <Trigger Property="IsChecked" Value="False">
                                         <Setter Property="Content">
                                             <Setter.Value>
-                                                <Image Height="30" Source="{StaticResource icon_step2DrawingImage}"/>
+                                                <Image Height="30" Source="{StaticResource icon_step2DrawingImage}" />
                                             </Setter.Value>
                                         </Setter>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
-                            <Style x:Key="ToggleButton3" TargetType="ToggleButton">
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="BorderBrush" Value="Transparent" />
-                                <EventSetter Event="Checked" Handler="Checked_volume" />
-                                <EventSetter Event="Unchecked" Handler="UnChecked_volume" />
+                            <Style x:Key="ToggleButton3" BasedOn="{StaticResource commontogglebutton}" TargetType="ToggleButton">
                                 <Style.Triggers>
                                     <Trigger Property="IsChecked" Value="True">
                                         <Setter Property="Content">
@@ -422,17 +403,13 @@
                                     <Trigger Property="IsChecked" Value="False">
                                         <Setter Property="Content">
                                             <Setter.Value>
-                                                <Image Height="30" Source="{StaticResource icon_step3DrawingImage}"/>
+                                                <Image Height="30" Source="{StaticResource icon_step3DrawingImage}" />
                                             </Setter.Value>
                                         </Setter>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
-                            <Style x:Key="ToggleButton4" TargetType="ToggleButton">
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="BorderBrush" Value="Transparent" />
-                                <EventSetter Event="Checked" Handler="Checked_volume" />
-                                <EventSetter Event="Unchecked" Handler="UnChecked_volume" />
+                            <Style x:Key="ToggleButton4" BasedOn="{StaticResource commontogglebutton}" TargetType="ToggleButton">
                                 <Style.Triggers>
                                     <Trigger Property="IsChecked" Value="True">
                                         <Setter Property="Content">
@@ -445,17 +422,13 @@
                                     <Trigger Property="IsChecked" Value="False">
                                         <Setter Property="Content">
                                             <Setter.Value>
-                                                <Image Height="30" Source="{StaticResource icon_step4DrawingImage}"/>
+                                                <Image Height="30" Source="{StaticResource icon_step4DrawingImage}" />
                                             </Setter.Value>
                                         </Setter>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
-                            <Style x:Key="ToggleButton5" TargetType="ToggleButton">
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="BorderBrush" Value="Transparent" />
-                                <EventSetter Event="Checked" Handler="Checked_volume" />
-                                <EventSetter Event="Unchecked" Handler="UnChecked_volume" />
+                            <Style x:Key="ToggleButton5" BasedOn="{StaticResource commontogglebutton}" TargetType="ToggleButton">
                                 <Style.Triggers>
                                     <Trigger Property="IsChecked" Value="True">
                                         <Setter Property="Content">
@@ -468,17 +441,13 @@
                                     <Trigger Property="IsChecked" Value="False">
                                         <Setter Property="Content">
                                             <Setter.Value>
-                                                <Image Height="30" Source="{StaticResource icon_step5DrawingImage}"/>
+                                                <Image Height="30" Source="{StaticResource icon_step5DrawingImage}" />
                                             </Setter.Value>
                                         </Setter>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
-                            <Style x:Key="ToggleButton6" TargetType="ToggleButton">
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="BorderBrush" Value="Transparent" />
-                                <EventSetter Event="Checked" Handler="Checked_volume" />
-                                <EventSetter Event="Unchecked" Handler="UnChecked_volume" />
+                            <Style x:Key="ToggleButton6" BasedOn="{StaticResource commontogglebutton}" TargetType="ToggleButton">
                                 <Style.Triggers>
                                     <Trigger Property="IsChecked" Value="True">
                                         <Setter Property="Content">
@@ -491,7 +460,7 @@
                                     <Trigger Property="IsChecked" Value="False">
                                         <Setter Property="Content">
                                             <Setter.Value>
-                                                <Image Height="30" Source="{StaticResource icon_step6DrawingImage}"/>
+                                                <Image Height="30" Source="{StaticResource icon_step6DrawingImage}" />
                                             </Setter.Value>
                                         </Setter>
                                     </Trigger>
@@ -521,12 +490,24 @@
                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Volume Rendering module"
                               Foreground="White" />
 
-                            <ToggleButton x:Name="volume1" Grid.Row="1" Grid.Column="1" Style="{StaticResource ToggleButton1}" />
-                            <ToggleButton x:Name="volume2" Grid.Row="1" Grid.Column="3" Style="{StaticResource ToggleButton2}" />
-                            <ToggleButton x:Name="volume3" Grid.Row="1" Grid.Column="5" Style="{StaticResource ToggleButton3}" />
-                            <ToggleButton x:Name="volume4" Grid.Row="2" Grid.Column="1" Style="{StaticResource ToggleButton4}" />
-                            <ToggleButton x:Name="volume5" Grid.Row="2" Grid.Column="3" Style="{StaticResource ToggleButton5}" />
-                            <ToggleButton x:Name="volume6" Grid.Row="2" Grid.Column="5" Style="{StaticResource ToggleButton6}" />
+                            <ToggleButton
+                              x:Name="volume1" Grid.Row="1" Grid.Column="1"
+                              Style="{StaticResource ToggleButton1}" />
+                            <ToggleButton
+                              x:Name="volume2" Grid.Row="1" Grid.Column="3"
+                              Style="{StaticResource ToggleButton2}" />
+                            <ToggleButton
+                              x:Name="volume3" Grid.Row="1" Grid.Column="5"
+                              Style="{StaticResource ToggleButton3}" />
+                            <ToggleButton
+                              x:Name="volume4" Grid.Row="2" Grid.Column="1"
+                              Style="{StaticResource ToggleButton4}" />
+                            <ToggleButton
+                              x:Name="volume5" Grid.Row="2" Grid.Column="3"
+                              Style="{StaticResource ToggleButton5}" />
+                            <ToggleButton
+                              x:Name="volume6" Grid.Row="2" Grid.Column="5"
+                              Style="{StaticResource ToggleButton6}" />
 
                         </Grid>
 

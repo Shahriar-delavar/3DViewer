@@ -410,6 +410,15 @@ void CMainFrame::SetWPFinterfacePos()
 		::ShowWindow(m_showobjcontrol->GetHWND(), SW_SHOW);
 	}
 
+	if (m_modelcontrol1 != NULL)
+	{
+		int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2 - m_modelcontrol1->GetWidth() / 2;
+		int mid_y = nowSizeClient.bottom - 10 - m_modelcontrol1->GetHeight();
+		//int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2;
+		::SetWindowPos(m_modelcontrol1->GetHWND(), NULL, mid_x, mid_y, m_modelcontrol1->GetWidth(), m_modelcontrol1->GetHeight(), NULL);
+		//::ShowWindow(m_modelcontrol1->GetHWND(), SW_SHOW);
+	}
+
 	if (m_fileprocesswin != NULL)
 	{
 		int min_x = nowSizeClient.left;
@@ -481,6 +490,18 @@ void CMainFrame::CreateWpfDialog()
 		int mid_x = nowSizeClient.right -10 - m_showobjcontrol->GetWidth();
 		::SetWindowPos(m_showobjcontrol->GetHWND(), NULL, mid_x, 50, m_showobjcontrol->GetWidth(), nowSizeClient.Height(), NULL);
 		::ShowWindow(m_showobjcontrol->GetHWND(), SW_SHOW);
+	}
+
+	if (m_modelcontrol1 == NULL)
+	{
+		m_modelcontrol1 = new ModelControl(GetActiveView()->GetSafeHwnd(), m_hWnd);
+		CRect nowSizeClient;
+		GetClientRect(nowSizeClient);
+		int mid_x = (nowSizeClient.left+nowSizeClient.right)/2 - m_modelcontrol1->GetWidth()/2;
+		int mid_y = nowSizeClient.bottom - 10 - m_modelcontrol1->GetHeight();
+		//int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2;
+		::SetWindowPos(m_modelcontrol1->GetHWND(), NULL, mid_x, mid_y, m_modelcontrol1->GetWidth(), m_modelcontrol1->GetHeight(), NULL);
+		::ShowWindow(m_modelcontrol1->GetHWND(), SW_SHOW);
 	}
 
 	if (m_fileprocesswin == NULL)

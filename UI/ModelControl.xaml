@@ -1,0 +1,164 @@
+﻿<Page
+  x:Class="UI.ModelControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:UI" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  Title="ModelControl" d:DesignHeight="100" d:DesignWidth="150"
+  mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ImgSource/SvgSource.xaml" />
+                <ResourceDictionary Source="BasicStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="my_rot_cc" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button01_cDrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="false">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button01DrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="my_rot_c" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button06_cDrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="false">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button06DrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="my_tra_up" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button02_cDrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="false">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button02DrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="my_tra_down" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button03_cDrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="false">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button03DrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid x:Name="maingrid" Width="150" Height="100">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Button
+          x:Name="rot_cc" Grid.Row="0" Grid.RowSpan="3"
+          Grid.Column="0" Background="Transparent" BorderThickness="0"
+          Click="rot_cc_click"
+          Style="{StaticResource my_rot_cc}" />
+        <Button
+          x:Name="rot_c" Grid.Row="0" Grid.RowSpan="3"
+          Grid.Column="4" Background="Transparent" BorderThickness="0"
+          Click="Rot_c_Click"
+          Style="{StaticResource my_rot_c}" />
+        <Button
+          x:Name="tra_u" Grid.Row="0" Grid.Column="1"
+          Grid.ColumnSpan="3" Background="Transparent" BorderThickness="0"
+          Click="Rot_c_Click"
+          Style="{StaticResource my_tra_up}" />
+        <Button
+          x:Name="tra_d" Grid.Row="2" Grid.Column="1"
+          Grid.ColumnSpan="3" Background="Transparent" BorderThickness="0"
+          Click="Rot_c_Click"
+          Style="{StaticResource my_tra_down}" />
+    </Grid>
+</Page>

@@ -104,6 +104,9 @@
     <Compile Include="ManualWin.xaml.cs">
       <DependentUpon>ManualWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModelControl.xaml.cs">
+      <DependentUpon>ModelControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RemoveTooth.xaml.cs">
       <DependentUpon>RemoveTooth.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ManualWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModelControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
