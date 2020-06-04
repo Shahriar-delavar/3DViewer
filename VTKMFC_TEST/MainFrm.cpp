@@ -501,7 +501,7 @@ void CMainFrame::CreateWpfDialog()
 		int mid_y = nowSizeClient.bottom - 10 - m_modelcontrol1->GetHeight();
 		//int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2;
 		::SetWindowPos(m_modelcontrol1->GetHWND(), NULL, mid_x, mid_y, m_modelcontrol1->GetWidth(), m_modelcontrol1->GetHeight(), NULL);
-		::ShowWindow(m_modelcontrol1->GetHWND(), SW_SHOW);
+		//::ShowWindow(m_modelcontrol1->GetHWND(), SW_SHOW);
 	}
 
 	if (m_fileprocesswin == NULL)
@@ -542,6 +542,11 @@ void CMainFrame::CreateWpfDialog()
 	if (m_fileimportlowerjaw == NULL)
 	{
 		m_fileimportlowerjaw = new FileImport_Lowerjaw(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
+	}
+
+	if (m_fileimport3dface == NULL)
+	{
+		m_fileimport3dface = new FileImport_3DFace(GetActiveView()->GetSafeHwnd(), pFrame->m_hWnd);
 	}
 }
 

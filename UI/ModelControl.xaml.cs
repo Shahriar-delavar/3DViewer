@@ -38,14 +38,41 @@ namespace UI
             return ((Grid)this.Content).RenderSize.Height;
         }
 
-        private void rot_cc_click(object sender, RoutedEventArgs e)
+        private void Rot_cc_click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("rot_cc");
+            //MessageBox.Show("rot_cc");
         }
 
         private void Rot_c_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("rot_c");
+            //MessageBox.Show("rot_c");
+        }
+
+        private void Button_Event_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+
+            switch (btn.Name)
+            {
+                case "m_rot_cc":
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MODELCONTROL, (IntPtr)0, (IntPtr)1);
+                    break;
+                case "m_rot_c":
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MODELCONTROL, (IntPtr)0, (IntPtr)0);
+                    break;
+                case "m_tra_left":
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MODELCONTROL, (IntPtr)1, (IntPtr)4);
+                    break;
+                case "m_tra_right":
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MODELCONTROL, (IntPtr)1, (IntPtr)5);
+                    break;
+                case "m_tra_up":
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MODELCONTROL, (IntPtr)1, (IntPtr)2);
+                    break;
+                case "m_tra_down":
+                    SendMessageClass.SendMessage(HostHandle, WM_WPFUI_MODELCONTROL, (IntPtr)1, (IntPtr)3);
+                    break;
+            }
         }
     }
 }

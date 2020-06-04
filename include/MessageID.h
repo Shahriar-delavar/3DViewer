@@ -78,6 +78,16 @@ enum ShowType
 	BUTTON_FACE
 };
 
+enum  ModelcontrolType
+{
+	MODEL_ROTATE_CLOCK,
+	MODEL_ROTATE_COUNTERCLOCK,
+	MODEL_MOVE_UP,
+	MODEL_MOVE_DOWN,
+	MODEL_MOVE_LEFT,
+	MODEL_MOVE_RIGHT
+};
+
 // 2008/07/24 kenny, 執行Message queue裡面的東西,讓單執行緒的UI看起來不至於沒有回應
 // 暫時的做法而已,多執行緒才是正確的做法
 inline void DoEvents()

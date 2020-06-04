@@ -208,6 +208,7 @@
     <ClCompile Include="BtnFuncBar.cpp" />
     <ClCompile Include="ExtractWin.cpp" />
     <ClCompile Include="EzOrthoReader.cpp" />
+    <ClCompile Include="FileImport_3DFace.cpp" />
     <ClCompile Include="FileImport_CT.cpp" />
     <ClCompile Include="FileImport_Lowerjaw.cpp" />
     <ClCompile Include="FileImport_Upperjaw.cpp" />
@@ -235,6 +236,7 @@
     <ClInclude Include="BtnFuncBar.h" />
     <ClInclude Include="ExtractWin.h" />
     <ClInclude Include="EzOrthoReader.h" />
+    <ClInclude Include="FileImport_3DFace.h" />
     <ClInclude Include="FileImport_CT.h" />
     <ClInclude Include="FileImport_Lowerjaw.h" />
     <ClInclude Include="FileImport_Upperjaw.h" />

@@ -86,6 +86,9 @@
     <Compile Include="ExtractWin.xaml.cs">
       <DependentUpon>ExtractWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileImport_3DFace.xaml.cs">
+      <DependentUpon>FileImport_3DFace.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FileImport_CT.xaml.cs">
       <DependentUpon>FileImport_CT.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
     <Page Include="ExtractWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FileImport_3DFace.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="FileImport_CT.xaml">
       <SubType>Designer</SubType>
@@ -215,6 +222,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImgSource\modelControlDemo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

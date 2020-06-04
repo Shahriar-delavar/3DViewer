@@ -122,6 +122,16 @@ namespace UI
                                 ScrollCrown.Value = 50;
                             break;
                         }
+                    case "ViewFace":
+                        {
+                            if (ScrollFace.Value == 100)
+                                ScrollFace.Value = 0;
+                            else if (ScrollFace.Value < 100 && ScrollFace.Value >= 50)
+                                ScrollFace.Value = 100;
+                            else
+                                ScrollFace.Value = 50;
+                            break;
+                        }
                 }
             }
         }
@@ -155,6 +165,11 @@ namespace UI
                 case "ScrollCrown":
                     {
                         SendMessageClass.SendMessage(HostHandle, WM_WPFUI_SHOWSETTING, (IntPtr)8, (IntPtr)ScrollCrown.Value);
+                        break;
+                    }
+                case "ScrollFace":
+                    {
+                        SendMessageClass.SendMessage(HostHandle, WM_WPFUI_SHOWSETTING, (IntPtr)9, (IntPtr)ScrollFace.Value);
                         break;
                     }
             }

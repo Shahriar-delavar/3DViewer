@@ -17,8 +17,8 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
             <RowDefinition Height="52" />
-            <RowDefinition Height="52" />
-            <RowDefinition Height="52" />
+            <RowDefinition Height="72" />
+            <RowDefinition Height="72" />
             <RowDefinition Height="52" />
             <RowDefinition Height="52" />
             <RowDefinition />
@@ -352,55 +352,12 @@
             <Viewbox>
                 <Image Source="{DynamicResource icon_step6_clickDrawingImage}" />
             </Viewbox>
+            <Viewbox>
+                <Image Source="{DynamicResource icon_faceDrawingImage}" />
+            </Viewbox>
 
         </StackPanel>
 
-        <StackPanel Grid.Row="6" HorizontalAlignment="Left" Orientation="Horizontal">
-            <StackPanel.Resources>
-                <Style TargetType="Viewbox">
-                    <Setter Property="Height" Value="72" />
-                    <Setter Property="Width" Value="72" />
-                    <Setter Property="Margin" Value="6,0" />
-                    <Setter Property="Stretch" Value="Uniform" />
-                </Style>
-            </StackPanel.Resources>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_clockwiseDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_clockwise_clickDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_counterclockwiseDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_counterclockwise_clickDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_leftDrawingImage_n}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_left_clickDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_onDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_on_clickDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_rightDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_right_clickDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_underDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_button_under_clickDrawingImage}" />
-            </Viewbox>
-        </StackPanel>
         <StackPanel Grid.Row="7" HorizontalAlignment="Left" Orientation="Horizontal">
             <StackPanel.Resources>
                 <Style TargetType="Viewbox">
@@ -412,13 +369,7 @@
             </StackPanel.Resources>
 
             <Viewbox>
-                <Image Source="{DynamicResource b_control_panel_leftDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_panel_positiveDrawingImage}" />
-            </Viewbox>
-            <Viewbox>
-                <Image Source="{DynamicResource b_control_panel_rightDrawingImage}" />
+                <Image Source="{DynamicResource b_button07DrawingImage}" />
             </Viewbox>
             <Viewbox>
                 <Image Source="{DynamicResource b_button01DrawingImage}" />

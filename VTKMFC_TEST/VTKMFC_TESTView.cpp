@@ -651,6 +651,7 @@ BEGIN_MESSAGE_MAP(CVTKMFCTESTView, CView)
 	ON_MESSAGE(WM_WPFUI_EXTRACT, WPFCALL_EXTRACT)
 	ON_MESSAGE(WM_WPFUI_INFOSETTING, WPFCALL_INFOSETTING)
 	ON_MESSAGE(WM_WPFUI_SHOWSETTING, WPFCALL_SHOWSETTING)
+	ON_MESSAGE(WM_WPFUI_MODELCONTROL, WPFCALL_MODELCONTROL)
 
 	ON_WM_KEYDOWN()
 	ON_WM_CHAR()
@@ -4745,7 +4746,37 @@ LRESULT CVTKMFCTESTView::WPFCALL_MANUALALIGNWIN(WPARAM wParam, LPARAM lParam)
 
 LRESULT CVTKMFCTESTView::WPFCALL_MODELCONTROL(WPARAM wParam, LPARAM lParam)
 {
-	AfxMessageBox(_T("MODELCONTROL MESSAGE"));
+	if (wParam == 0)//rotate
+	{
+		if (lParam == MODEL_ROTATE_CLOCK)
+		{
+			AfxMessageBox(_T("c"));
+		}
+		else if (lParam == MODEL_ROTATE_COUNTERCLOCK)
+		{
+			AfxMessageBox(_T("cc"));
+		}
+	}
+	else if (wParam == 1)//move
+	{
+		if (lParam == MODEL_MOVE_UP)
+		{
+			AfxMessageBox(_T("up"));
+		}
+		else if (lParam == MODEL_MOVE_DOWN)
+		{
+			AfxMessageBox(_T("down"));
+		}
+		else if (lParam == MODEL_MOVE_LEFT)
+		{
+			AfxMessageBox(_T("left"));
+		}
+		else if (lParam == MODEL_MOVE_RIGHT)
+		{
+			AfxMessageBox(_T("right"));
+		}
+	}
+
 	return 1;
 }
 
@@ -4767,6 +4798,7 @@ LRESULT CVTKMFCTESTView::WPFCALL_INFOSETTING(WPARAM wParam, LPARAM lParam)
 
 LRESULT CVTKMFCTESTView::WPFCALL_SHOWSETTING(WPARAM wParam, LPARAM lParam)
 {
+	CMainFrame* pFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
 	if (wParam == 0)//功能隱藏
 	{
 		if (lParam == SHOWDLG)
@@ -4798,9 +4830,11 @@ LRESULT CVTKMFCTESTView::WPFCALL_SHOWSETTING(WPARAM wParam, LPARAM lParam)
 		if (lParam == SHOW_3D)
 		{
 			//AfxMessageBox(_T("3D顯示"));
+			::ShowWindow(pFrame->m_modelcontrol1->GetHWND(), SW_HIDE);
 		}
 		else if (lParam == HIDE_3D)
 		{
+			::ShowWindow(pFrame->m_modelcontrol1->GetHWND(), SW_SHOW);
 			//AfxMessageBox(_T("2D顯示"));
 		}
 		else if (lParam == SHOW_INFOR)
@@ -4893,6 +4927,12 @@ LRESULT CVTKMFCTESTView::WPFCALL_SHOWSETTING(WPARAM wParam, LPARAM lParam)
 	AfxMessageBox(yy);
 	}
 	else if (wParam == 8)//slide_crown
+	{
+	CString yy;
+	yy.Format(_T("%d"), (int)lParam);
+	AfxMessageBox(yy);
+	}
+	else if (wParam == 9)//slide_face
 	{
 	CString yy;
 	yy.Format(_T("%d"), (int)lParam);
@@ -5019,9 +5059,6 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 	{
 		if (lParam == 1)
 		{
-			CRect nowSizeClient;
-			GetClientRect(nowSizeClient);
-
 			int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2 - pFrame->m_fileimportlowerjaw->GetWidth() / 2;
 			int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2 - pFrame->m_fileimportlowerjaw->GetHeight() / 2;
 
@@ -5048,7 +5085,11 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 		}
 		else if (lParam == 2)
 		{
-			AfxMessageBox(_T("3d face load"));
+			int mid_x = (nowSizeClient.left + nowSizeClient.right) / 2 - pFrame->m_fileimport3dface->GetWidth() / 2;
+			int mid_y = (nowSizeClient.top + nowSizeClient.bottom) / 2 - pFrame->m_fileimport3dface->GetHeight() / 2;
+
+			pFrame->m_fileimport3dface->SetPosition(mid_y, mid_x);
+			pFrame->m_fileimport3dface->Show();
 		}
 	}
 	else if (wParam == 10)//ct load dialog
@@ -5100,6 +5141,29 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 	}
 	else if (wParam == 30)//lowerjaw load dialog
 	{
+		if (lParam == 0)
+		{
+
+		}
+		else if (lParam == 1)
+		{
+			CString path_name;
+			path_name = pFrame->m_fileimportlowerjaw->GetCTFolderPath().c_str();
+			AfxMessageBox(path_name);
+			pFrame->m_fileimportlowerjaw->Hide();
+		}
+		else if (lParam == 2)
+		{
+			pFrame->m_fileimportlowerjaw->Hide();
+		}
+	}
+	else if (wParam == 40)//2D Face
+	{
+
+
+	}
+	else if (wParam == 50)
+	{
 	if (lParam == 0)
 	{
 
@@ -5107,13 +5171,13 @@ LRESULT CVTKMFCTESTView::WPFCALL_FILEPROCESSWIN(WPARAM wParam, LPARAM lParam)
 	else if (lParam == 1)
 	{
 		CString path_name;
-		path_name = pFrame->m_fileimportlowerjaw->GetCTFolderPath().c_str();
+		path_name = pFrame->m_fileimport3dface->GetCTFolderPath().c_str();
 		AfxMessageBox(path_name);
-		pFrame->m_fileimportlowerjaw->Hide();
+		pFrame->m_fileimport3dface->Hide();
 	}
 	else if (lParam == 2)
 	{
-		pFrame->m_fileimportlowerjaw->Hide();
+		pFrame->m_fileimport3dface->Hide();
 	}
 	}
 
@@ -5132,6 +5196,7 @@ void CVTKMFCTESTView::WPFDLG_ALL_HIDE(int level)
 		pFrame->m_removetooth->Hide();
 		pFrame->m_fileimportct->Hide();
 		pFrame->m_extract->Hide();
+		::ShowWindow(pFrame->m_modelcontrol1->GetHWND(), SW_HIDE);
 	}
 	else if (level == 1)
 	{
@@ -5139,6 +5204,7 @@ void CVTKMFCTESTView::WPFDLG_ALL_HIDE(int level)
 		pFrame->m_alignwin->Hide();
 		pFrame->m_manualwin->Hide();
 		pFrame->m_extract->Hide();
+		::ShowWindow(pFrame->m_modelcontrol1->GetHWND(), SW_HIDE);
 	}
 	else if (level == 2)
 	{

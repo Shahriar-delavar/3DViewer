@@ -298,7 +298,7 @@
                                 <Image x:Name="InforImg" Source="{StaticResource icon_userDrawingImage}" />
                                 <CheckBox
                                   x:Name="InforChk" Margin="20,0" HorizontalAlignment="Left"
-                                  VerticalAlignment="Center" Click="InforChk_Click" IsChecked="True"
+                                  VerticalAlignment="Center" Click="InforChk_Click" IsChecked="False"
                                   Style="{DynamicResource SliderCheckBox}" />
                             </StackPanel>
                         </Border>
@@ -308,7 +308,7 @@
                                 <Image x:Name="gridImg" Source="{StaticResource icon_gridDrawingImage}" />
                                 <CheckBox
                                   x:Name="GridChk" Margin="20,0" HorizontalAlignment="Left"
-                                  VerticalAlignment="Center" Click="Grid_Click" IsChecked="True"
+                                  VerticalAlignment="Center" Click="Grid_Click" IsChecked="False"
                                   Style="{DynamicResource SliderCheckBox}" />
                             </StackPanel>
                         </Border>
@@ -318,7 +318,7 @@
                                 <Image x:Name="colormapImg" Source="{StaticResource icon_colourDrawingImage}" />
                                 <CheckBox
                                   x:Name="ColormapChk" Margin="20,0" HorizontalAlignment="Left"
-                                  VerticalAlignment="Center" Click="Color_Click" IsChecked="True"
+                                  VerticalAlignment="Center" Click="Color_Click" IsChecked="False"
                                   Style="{DynamicResource SliderCheckBox}" />
                             </StackPanel>
                         </Border>
@@ -544,7 +544,7 @@
                                   Width="80" Margin="5" VerticalAlignment="Center"
                                   IsMoveToPointEnabled="True" Maximum="100" Minimum="0"
                                   MouseWheel="Slider_MouseWheel" Orientation="Horizontal" SmallChange="1"
-                                  ValueChanged="Scroll_ValueChanged" Value="50" />
+                                  ValueChanged="Scroll_ValueChanged" Value="100" />
                             </StackPanel>
                         </Border>
 
@@ -565,7 +565,7 @@
                                   Width="80" Margin="5" VerticalAlignment="Center"
                                   IsMoveToPointEnabled="True" Maximum="100" Minimum="0"
                                   MouseWheel="Slider_MouseWheel" Orientation="Horizontal" SmallChange="1"
-                                  ValueChanged="Scroll_ValueChanged" Value="50" />
+                                  ValueChanged="Scroll_ValueChanged" Value="100" />
                             </StackPanel>
                         </Border>
 
@@ -587,11 +587,11 @@
                                   Width="80" Margin="5" VerticalAlignment="Center"
                                   IsMoveToPointEnabled="True" Maximum="100" Minimum="0"
                                   MouseWheel="Slider_MouseWheel" Orientation="Horizontal" SmallChange="1"
-                                  ValueChanged="Scroll_ValueChanged" Value="50" />
+                                  ValueChanged="Scroll_ValueChanged" Value="100" />
                             </StackPanel>
                         </Border>
 
-                        <Border Margin="12,5,12,12" Background="{StaticResource ItemBackgroundColor}">
+                        <Border Margin="5" Background="{StaticResource ItemBackgroundColor}">
                             <StackPanel x:Name="CrownGroup" Orientation="Horizontal" Style="{StaticResource ItemStackPanel}">
                                 <Image
                                   x:Name="ViewCrown" Grid.Row="16" MouseEnter="ImgMouseEnter"
@@ -608,7 +608,27 @@
                                   Width="80" Margin="5" VerticalAlignment="Center"
                                   IsMoveToPointEnabled="True" Maximum="100" Minimum="0"
                                   MouseWheel="Slider_MouseWheel" Orientation="Horizontal" SmallChange="1"
-                                  ValueChanged="Scroll_ValueChanged" Value="50" />
+                                  ValueChanged="Scroll_ValueChanged" Value="100" />
+                            </StackPanel>
+                        </Border>
+                        <Border Margin="12,5,12,12" Background="{StaticResource ItemBackgroundColor}">
+                            <StackPanel x:Name="FaceGroup" Orientation="Horizontal" Style="{StaticResource ItemStackPanel}">
+                                <Image
+                                  x:Name="ViewFace" Grid.Row="16" MouseEnter="ImgMouseEnter"
+                                  MouseLeave="ImgMouseLeave" MouseLeftButtonUp="ImageButton_MouseLeftButtonUp" RenderTransformOrigin="0.5,0.5"
+                                  Source="{StaticResource icon_faceDrawingImage}">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform />
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                                <Slider
+                                  x:Name="ScrollFace" Grid.Row="16" Grid.Column="1"
+                                  Width="80" Margin="5" VerticalAlignment="Center"
+                                  IsMoveToPointEnabled="True" Maximum="100" Minimum="0"
+                                  MouseWheel="Slider_MouseWheel" Orientation="Horizontal" SmallChange="1"
+                                  ValueChanged="Scroll_ValueChanged" Value="100" />
                             </StackPanel>
                         </Border>
 

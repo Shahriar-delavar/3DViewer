@@ -12,6 +12,7 @@
 #include "FileImport_CT.h"
 #include "FileImport_Upperjaw.h"
 #include "FileImport_Lowerjaw.h"
+#include "FileImport_3DFace.h"
 #include "ExtractWin.h"
 #include "InfoSetting.h"
 #include "ShowObjControl.h"
@@ -37,6 +38,7 @@ public:
 	FileImport_CT *m_fileimportct = NULL;
 	FileImport_Upperjaw *m_fileimportupperjaw = NULL;
 	FileImport_Lowerjaw *m_fileimportlowerjaw = NULL;
+	FileImport_3DFace *m_fileimport3dface = NULL;
 	ExtractWin *m_extract = NULL;
 	InfoSetting *m_infosetting = NULL;
 	ShowObjControl *m_showobjcontrol = NULL;

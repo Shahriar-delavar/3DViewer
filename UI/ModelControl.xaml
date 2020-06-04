@@ -11,7 +11,7 @@
                 <ResourceDictionary Source="BasicStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style x:Key="my_rot_cc" TargetType="Button">
+            <Style x:Key="commonbutton" TargetType="Button">
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="Template">
                     <Setter.Value>
@@ -22,15 +22,19 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
+                <EventSetter Event="Click" Handler="Button_Event_Click" />
+
+            </Style>
+            <Style x:Key="my_rot_cc" BasedOn="{StaticResource commonbutton}" TargetType="Button">
                 <Style.Triggers>
-                    <Trigger Property="IsPressed" Value="true">
+                    <Trigger Property="IsMouseOver" Value="true">
                         <Setter Property="Content">
                             <Setter.Value>
                                 <Image Source="{StaticResource b_button01_cDrawingImage}" />
                             </Setter.Value>
                         </Setter>
                     </Trigger>
-                    <Trigger Property="IsPressed" Value="false">
+                    <Trigger Property="IsMouseOver" Value="false">
                         <Setter Property="Content">
                             <Setter.Value>
                                 <Image Source="{StaticResource b_button01DrawingImage}" />
@@ -39,26 +43,16 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-            <Style x:Key="my_rot_c" TargetType="Button">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Grid Background="{TemplateBinding Background}">
-                                <ContentPresenter />
-                            </Grid>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
+            <Style x:Key="my_rot_c" BasedOn="{StaticResource commonbutton}" TargetType="Button">
                 <Style.Triggers>
-                    <Trigger Property="IsPressed" Value="true">
+                    <Trigger Property="IsMouseOver" Value="true">
                         <Setter Property="Content">
                             <Setter.Value>
                                 <Image Source="{StaticResource b_button06_cDrawingImage}" />
                             </Setter.Value>
                         </Setter>
                     </Trigger>
-                    <Trigger Property="IsPressed" Value="false">
+                    <Trigger Property="IsMouseOver" Value="false">
                         <Setter Property="Content">
                             <Setter.Value>
                                 <Image Source="{StaticResource b_button06DrawingImage}" />
@@ -67,26 +61,16 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-            <Style x:Key="my_tra_up" TargetType="Button">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Grid Background="{TemplateBinding Background}">
-                                <ContentPresenter />
-                            </Grid>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
+            <Style x:Key="my_tra_up" BasedOn="{StaticResource commonbutton}" TargetType="Button">
                 <Style.Triggers>
-                    <Trigger Property="IsPressed" Value="true">
+                    <Trigger Property="IsMouseOver" Value="true">
                         <Setter Property="Content">
                             <Setter.Value>
                                 <Image Source="{StaticResource b_button02_cDrawingImage}" />
                             </Setter.Value>
                         </Setter>
                     </Trigger>
-                    <Trigger Property="IsPressed" Value="false">
+                    <Trigger Property="IsMouseOver" Value="false">
                         <Setter Property="Content">
                             <Setter.Value>
                                 <Image Source="{StaticResource b_button02DrawingImage}" />
@@ -95,29 +79,55 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-            <Style x:Key="my_tra_down" TargetType="Button">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Grid Background="{TemplateBinding Background}">
-                                <ContentPresenter />
-                            </Grid>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
+            <Style x:Key="my_tra_down" BasedOn="{StaticResource commonbutton}" TargetType="Button">
                 <Style.Triggers>
-                    <Trigger Property="IsPressed" Value="true">
+                    <Trigger Property="IsMouseOver" Value="true">
                         <Setter Property="Content">
                             <Setter.Value>
                                 <Image Source="{StaticResource b_button03_cDrawingImage}" />
                             </Setter.Value>
                         </Setter>
                     </Trigger>
-                    <Trigger Property="IsPressed" Value="false">
+                    <Trigger Property="IsMouseOver" Value="false">
                         <Setter Property="Content">
                             <Setter.Value>
                                 <Image Source="{StaticResource b_button03DrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="my_tra_left" BasedOn="{StaticResource commonbutton}" TargetType="Button">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button04_cDrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="false">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button04DrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="my_tra_right" BasedOn="{StaticResource commonbutton}" TargetType="Button">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button05_cDrawingImage}" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="false">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="{StaticResource b_button05DrawingImage}" />
                             </Setter.Value>
                         </Setter>
                     </Trigger>
@@ -128,7 +138,82 @@
     </Page.Resources>
 
     <Grid x:Name="maingrid" Width="150" Height="100">
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+        </Grid.Resources>
         <Grid.RowDefinitions>
+            <RowDefinition Height="13*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="17*" />
+            <RowDefinition Height="18*" />
+            <RowDefinition Height="13*" />
+            <RowDefinition Height="19*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*" />
+            <ColumnDefinition Width="9*" />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="36*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="11*" />
+            <ColumnDefinition Width="26*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  參考圖  -->
+        <Image
+          Grid.Row="0" Grid.RowSpan="8" Grid.Column="0"
+          Grid.ColumnSpan="11" Panel.ZIndex="-1" Opacity="0.2"
+          Source="/ImgSource/modelControlDemo.jpg" />
+
+        <Button
+          x:Name="m_rot_cc" Grid.Row="1" Grid.RowSpan="6"
+          Grid.Column="0" Grid.ColumnSpan="2"
+          Style="{StaticResource my_rot_cc}" />
+
+        <Button
+          x:Name="m_tra_left" Grid.Row="2" Grid.RowSpan="5"
+          Grid.Column="1" Grid.ColumnSpan="4" Margin="0,0,1,0"
+          Style="{StaticResource my_tra_left}" />
+
+        <Button
+          x:Name="m_tra_up" Grid.Row="0" Grid.RowSpan="4"
+          Grid.Column="3" Grid.ColumnSpan="5" Height="30"
+          Margin="0,2,0,0" VerticalAlignment="Top"
+          Style="{StaticResource my_tra_up}" />
+
+        <Button
+          Grid.Row="3" Grid.RowSpan="4" Grid.Column="4"
+          Grid.ColumnSpan="3" Height="46" VerticalAlignment="Top"
+          Style="{StaticResource commonbutton}">
+            <Image Source="{DynamicResource b_button07DrawingImage}" />
+        </Button>
+
+        <Button
+          x:Name="m_tra_down" Grid.Row="6" Grid.RowSpan="2"
+          Grid.Column="3" Grid.ColumnSpan="5" Height="30"
+          VerticalAlignment="Top"
+          Style="{StaticResource my_tra_down}" />
+
+        <Button
+          x:Name="m_tra_right" Grid.Row="2" Grid.RowSpan="5"
+          Grid.Column="6" Grid.ColumnSpan="4" Margin="0,0,1,0"
+          Style="{StaticResource my_tra_right}" />
+
+        <Button
+          x:Name="m_rot_c" Grid.Row="1" Grid.RowSpan="6"
+          Grid.Column="9" Grid.ColumnSpan="2" Width="36"
+          HorizontalAlignment="Left"
+          Style="{StaticResource my_rot_c}" />
+        <!--<Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -159,6 +244,6 @@
           x:Name="tra_d" Grid.Row="2" Grid.Column="1"
           Grid.ColumnSpan="3" Background="Transparent" BorderThickness="0"
           Click="Rot_c_Click"
-          Style="{StaticResource my_tra_down}" />
+          Style="{StaticResource my_tra_down}" />-->
     </Grid>
 </Page>
